@@ -5,18 +5,18 @@ namespace PSJ._01.Script.Dialogue
     public class DialogueNpc : MonoBehaviour
     {
         [SerializeField] private Dialogue dialogue;
-        private bool isDialogue = false;
+        private bool _isDialogue;
 
         private void OnMouseDown()
         {
             DialogueManager.Instance.OnDialogueEnd += OnDialogueEnd;
-            isDialogue = true;
+            _isDialogue = true;
             DialogueManager.Instance.DialogueStart(dialogue);
         }
 
-        public void StopInteract()
+        private void StopInteract()
         {
-            isDialogue = false;
+            _isDialogue = false;
         }
         private void OnDialogueEnd()
         {

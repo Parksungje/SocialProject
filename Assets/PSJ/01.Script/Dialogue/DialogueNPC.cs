@@ -5,7 +5,7 @@ namespace PSJ._01.Script.Dialogue
     public class DialogueNpc : MonoBehaviour
     {
         [SerializeField] private Dialogue dialogue;
-        private bool _isDialogue;
+        public bool _isDialogue;
 
         private void OnMouseDown()
         {

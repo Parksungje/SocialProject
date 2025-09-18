@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 111408354}
   - component: {fileID: 111408355}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: DialogueNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +468,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcNameVal: {fileID: 1694414982}
   contentsVal: {fileID: 650660398}
-  animator: {fileID: 1190414950}
 --- !u!1 &1190414944
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +480,6 @@ GameObject:
   - component: {fileID: 1190414947}
   - component: {fileID: 1190414946}
   - component: {fileID: 1190414949}
-  - component: {fileID: 1190414950}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -507,7 +505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -277}
+  m_AnchoredPosition: {x: 0, y: -314}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1190414946
@@ -563,28 +561,6 @@ MonoBehaviour:
   npcName: SSS
   contents:
   - SSS ZZANG
---- !u!95 &1190414950
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190414944}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6111412ff48f6e548b11b330a7c92ffc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1340529181
 GameObject:
   m_ObjectHideFlags: 0

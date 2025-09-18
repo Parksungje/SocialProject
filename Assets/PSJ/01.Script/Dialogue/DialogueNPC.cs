@@ -12,6 +12,10 @@ namespace PSJ._01.Script.Dialogue
             DialogueManager.Instance.OnDialogueEnd += OnDialogueEnd;
             _isDialogue = true;
             DialogueManager.Instance.DialogueStart(dialogue);
+            if (_isDialogue)
+            {
+                Debug.Log("보이루");
+            }
         }
 
         private void StopInteract()

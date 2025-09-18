@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 namespace PSJ._01.Script.Dialogue
 {
@@ -14,9 +15,8 @@ namespace PSJ._01.Script.Dialogue
         public TextMeshProUGUI npcNameVal;
         public TextMeshProUGUI contentsVal;
 
-        public Animator animator = null;
 
-        private Queue<string> contentsQueue;
+        private Queue<string> _contentsQueue;
 
         public event Action OnDialogueStart;
         public event Action OnDialogueEnd;
@@ -28,19 +28,18 @@ namespace PSJ._01.Script.Dialogue
 
         private void Start()
         {
-            contentsQueue = new Queue<string>();
+            _contentsQueue = new Queue<string>();
         }
 
         public void DialogueStart(Dialogue dialogue)
         {
             OnDialogueStart?.Invoke();
-            animator?.SetBool("IsDialogue", true);
             npcNameVal.text = dialogue.npcName;
-            contentsQueue.Clear();
+            _contentsQueue.Clear();
 
             foreach (string contents in dialogue.contents)
             {
-                contentsQueue.Enqueue(contents);   
+                _contentsQueue.Enqueue(contents);   
             }
 
             GetNextContent();
@@ -48,13 +47,13 @@ namespace PSJ._01.Script.Dialogue
 
         private void GetNextContent()
         {
-            if (contentsQueue.Count == 0)
+            if (_contentsQueue.Count == 0)
             {
                 DialogueEnd();
                 return;
             }
             
-            string content = contentsQueue.Dequeue();
+            string content = _contentsQueue.Dequeue();
             StopAllCoroutines();
             StartCoroutine(ContentsType(content));
         }
@@ -63,7 +62,7 @@ namespace PSJ._01.Script.Dialogue
         {
             contentsVal.text = string.Empty;
             yield return new WaitForSeconds(0.25f);
-            foreach (char letter in contents.ToCharArray())
+            foreach (char letter in contents)
             {
                 contentsVal.text += letter;
                 yield return null;
@@ -72,8 +71,8 @@ namespace PSJ._01.Script.Dialogue
 
         private void DialogueEnd()
         {
-            animator?.SetBool("IsDialogue", false);
             OnDialogueEnd?.Invoke();
+            transform.DOMoveY(-50f, 60f);
         }
     }
 }

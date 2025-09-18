@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DaySO : ScriptableObject
 {
-    public List<InfoSO> CurrectInfo;
     public List<TempDoccumentSO> DoccumentInfo;
 
     public int day = 0;

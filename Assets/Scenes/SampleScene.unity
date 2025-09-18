@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb286299e37a8f84ab8fc59cfef74d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
+  obj: {fileID: 37990447}
   targetPostion:
   - {fileID: 1198738857}
   - {fileID: 2016906798}
@@ -969,11 +969,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 37990449}
         m_TargetAssemblyTypeName: UIMove, Assembly-CSharp
-        m_MethodName: AutoMoveUI
-        m_Mode: 2
+        m_MethodName: MoveUI
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 37990447}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: CheckAnswer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1278,6 +1290,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 37990447}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetTypeofError
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1671,6 +1695,7 @@ MonoBehaviour:
   _checkIcon: {fileID: 0}
   _doccument: {fileID: 0}
   checkDocument: 0
+  _type: 0
   correct: 0
   incorrect: 0
 --- !u!4 &777821661
@@ -1866,6 +1891,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 37990447}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetTypeofError
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2351,6 +2388,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetTypeofError
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971301946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,6 +2677,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetTypeofError
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1031658480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2889,7 +2950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayList:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 60c2cd021cc6f8e4eb66a6c4c68f09ba, type: 2}
   _dayRuleList: []
 --- !u!4 &1054548706
 Transform:
@@ -2992,8 +3053,9 @@ GameObject:
   - component: {fileID: 1098622109}
   - component: {fileID: 1098622111}
   - component: {fileID: 1098622110}
+  - component: {fileID: 1098622112}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Folder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3031,7 +3093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6478435, g: 0.690566, b: 0.45212528, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3056,6 +3118,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098622108}
   m_CullTransparentMesh: 1
+--- !u!114 &1098622112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098622108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1098622110}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672324253}
+        m_TargetAssemblyTypeName: Document, Assembly-CSharp
+        m_MethodName: DocumentInit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetDocument
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1099510360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,17 +3376,29 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 461507521}
+  m_TargetGraphic: {fileID: 1178669232}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 37990449}
         m_TargetAssemblyTypeName: UIMove, Assembly-CSharp
-        m_MethodName: AutoMoveUI
-        m_Mode: 2
+        m_MethodName: MoveUI
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 37990447}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: CheckAnswer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4056,6 +4198,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 37990447}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 777821660}
+        m_TargetAssemblyTypeName: DepthExamination, Assembly-CSharp
+        m_MethodName: SetTypeofError
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4896,19 +5050,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb7d2d234806f247ac4b8d4fcb834c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 0}
-  stat: {fileID: 0}
-  checkButton: []
-  naming: {fileID: 0}
-  sexuality: {fileID: 0}
-  Univ: {fileID: 0}
-  Major: {fileID: 0}
-  Grade: {fileID: 0}
-  Gradu: {fileID: 0}
-  prev: {fileID: 0}
-  Job: {fileID: 0}
-  Period: {fileID: 0}
-  Call: {fileID: 0}
+  today:
+  - {fileID: 11400000, guid: 60c2cd021cc6f8e4eb66a6c4c68f09ba, type: 2}
+  tempDoccument: {fileID: 0}
+  stat: {fileID: 11400000, guid: ecf8ad0e23038c04f96510133c1af762, type: 2}
+  naming: {fileID: 1755827451}
+  Address: {fileID: 1048277116}
+  sexuality: {fileID: 2026580322}
+  Univ: {fileID: 2001240322}
+  Major: {fileID: 1934312754}
+  Grade: {fileID: 1466703409}
+  Gradu: {fileID: 1215414527}
+  prev: {fileID: 1190528509}
+  Job: {fileID: 869633612}
+  Period: {fileID: 1273666827}
+  Call: {fileID: 1213492568}
 --- !u!4 &1672324254
 Transform:
   m_ObjectHideFlags: 0

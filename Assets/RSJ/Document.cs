@@ -5,17 +5,23 @@ using System.Collections.Generic;
 
 public class Document : MonoBehaviour
 {
-    DaySO today;
+    [SerializeField] private List<DaySO> today;
+    public TempDoccumentSO tempDoccument;
+    [SerializeField] private GameStatusSO stat;
 
     int allotment = 0;
 
-    [SerializeField] private ContainerScript _container;
-    [SerializeField] private GameStatusSO stat;
+    public static Document instance;
+
+    private void OnEnable()
+    {
+        if(instance == null)
+            instance = this;
+    }
 
     #region 정보 담은 거
-    [SerializeField] private List<Button> checkButton;
-
     [SerializeField] private TextMeshProUGUI naming;
+    [SerializeField] private TextMeshProUGUI Address;
     [SerializeField] private TextMeshProUGUI sexuality;
     [SerializeField] private TextMeshProUGUI Univ;
     [SerializeField] private TextMeshProUGUI Major;
@@ -27,33 +33,22 @@ public class Document : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Call;
     #endregion
 
-    public void Awake()
-    {
-        _container._dayList[stat.day] = today;
-    }
-
     public void DocumentInit()
     {
         if(today != null)
         {
-            naming.text = today.DoccumentInfo[allotment].infoName;
-            sexuality.text = today.DoccumentInfo[allotment].Sexuality;
-            Univ.text = today.DoccumentInfo[allotment].univ;
-            Major.text = today.DoccumentInfo[allotment].Major;
-            Grade.text = today.DoccumentInfo[allotment].Grade.ToString();
-            Gradu.text = today.DoccumentInfo[allotment].Graduation.ToString();
-            prev.text = today.DoccumentInfo[allotment].prevCom;
-            Job.text = today.DoccumentInfo[allotment].Job;
-            Period.text = today.DoccumentInfo[allotment].Period.ToString();
-            Call.text = today.DoccumentInfo[allotment].Call;
+            naming.text = today[stat.day].DoccumentInfo[allotment].infoName;
+            sexuality.text = today[stat.day].DoccumentInfo[allotment].Sexuality;
+            Univ.text = today[stat.day].DoccumentInfo[allotment].univ;
+            Major.text = today[stat.day].DoccumentInfo[allotment].Major;
+            Grade.text = today[stat.day].DoccumentInfo[allotment].Grade.ToString();
+            Gradu.text = today[stat.day].DoccumentInfo[allotment].Graduation.ToString();
+            prev.text = today[stat.day].DoccumentInfo[allotment].prevCom;
+            Job.text = today[stat.day].DoccumentInfo[allotment].Job;
+            Period.text = today[stat.day].DoccumentInfo[allotment].Period.ToString();
+            Call.text = today[stat.day].DoccumentInfo[allotment].Call;
+
+            tempDoccument = today[stat.day].DoccumentInfo[allotment];
         }
     }
-
-    public void CheckSus(int a)
-    {
-        checkButton[a].TryGetComponent(out TextMeshProUGUI meshpro);
-        meshpro.color = Color.red;
-    }
-
-
 }

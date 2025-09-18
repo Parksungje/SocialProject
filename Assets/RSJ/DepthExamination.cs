@@ -9,7 +9,7 @@ public class DepthExamination : MonoBehaviour
     [SerializeField] private GameObject _checkIcon;
     [SerializeField] private TempDoccumentSO _doccument;
     [SerializeField] private bool checkDocument;
-    private ErrorType _type;
+    [SerializeField]private ErrorType _type;
     public int correct;
     public int incorrect;
 
@@ -33,10 +33,12 @@ public class DepthExamination : MonoBehaviour
         if(_doccument._errorType == _type)
         {
             correct++;
+            Debug.Log("薑港蹺");
         }
         else
         {
             incorrect++;
+            Debug.Log("雄 六六六六");
         }
     }
 
@@ -68,5 +70,10 @@ public class DepthExamination : MonoBehaviour
             text.color = Color.black;
         else
             text.color = Color.red;
+    }
+
+    public void SetDocument()
+    {
+        _doccument = Document.instance.tempDoccument;
     }
 }

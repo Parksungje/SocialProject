@@ -1,26 +1,33 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PSJ._01.Script.Dialogue
 {
     public class DialogueNpc : MonoBehaviour
     {
         [SerializeField] private Dialogue dialogue;
-        public bool _isDialogue;
+        public bool isDialogue = false; 
 
-        private void OnMouseDown()
+        private void Start()
         {
             DialogueManager.Instance.OnDialogueEnd += OnDialogueEnd;
-            _isDialogue = true;
+            isDialogue = true;
             DialogueManager.Instance.DialogueStart(dialogue);
-            if (_isDialogue)
+            if (isDialogue)
             {
                 Debug.Log("보이루");
             }
         }
 
+        private void Update()
+        {
+            Debug.Log($"isDialogue 상태: {isDialogue}");
+        }
+
         private void StopInteract()
         {
-            _isDialogue = false;
+            isDialogue = false;
         }
         private void OnDialogueEnd()
         {

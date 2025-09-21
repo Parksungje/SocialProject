@@ -23,19 +23,19 @@ namespace PSJ._01.Script.Dialogue
 
         private void Awake()
         {
-            instance = this;
-        }
-
-        private void Start()
-        {
-            _contentsQueue = new Queue<string>();
+            if (instance == null)
+            {
+                instance = this;
+            }
+            _contentsQueue = new Queue<string>(); // 초기화 추가
+            _contentsQueue.Clear();
         }
 
         public void DialogueStart(Dialogue dialogue)
         {
+            Debug.Log("DialogueStart");
             OnDialogueStart?.Invoke();
             npcNameVal.text = dialogue.npcName;
-            _contentsQueue.Clear();
 
             foreach (string contents in dialogue.contents)
             {
@@ -71,8 +71,8 @@ namespace PSJ._01.Script.Dialogue
 
         private void DialogueEnd()
         {
+            Debug.Log("DialogueEnd");
             OnDialogueEnd?.Invoke();
-            transform.DOMoveY(-50f, 60f);
         }
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "TempDocumentSO", menuName = "Scriptable Objects/TempDocumentSO", order = 0)]
 public class TempDoccumentSO : ScriptableObject
@@ -6,6 +8,7 @@ public class TempDoccumentSO : ScriptableObject
     public University universityEnum;
     public Region RegionEnum;
     public ErrorType _errorType;
+    public List<SpriteRenderer> _imageList;
     
     public string region;
     public string univ;

@@ -7,7 +7,6 @@ public class DaySO : ScriptableObject
 {
     public List<TempDoccumentSO> DoccumentInfo;
 
-    public int day = 0;
     public int Correct = 0;
     public int incorrect = 0;
 }

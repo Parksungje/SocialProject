@@ -2,14 +2,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class Document : MonoBehaviour
 {
     [SerializeField] private List<DaySO> today;
     public TempDoccumentSO tempDoccument;
     [SerializeField] private GameStatusSO stat;
+    [SerializeField] private List<GameObject> _imageList;
 
-    int allotment = 0;
+    public int allotment = 0;
 
     public static Document instance;
 
@@ -49,6 +51,42 @@ public class Document : MonoBehaviour
             Call.text = today[stat.day].DoccumentInfo[allotment].Call;
 
             tempDoccument = today[stat.day].DoccumentInfo[allotment];
+        }
+
+        SetImage();
+    }
+
+    private void SetImage()
+    {
+        Debug.Assert(tempDoccument != null, "tempDoccumnt didn't set");
+
+        int a = 0;
+        foreach (var item in _imageList)
+        {
+            item.SetActive(false);
+            item.GetComponent<Image>().sprite = tempDoccument._imageList[a].sprite;
+            a++;
+        }
+    }
+
+    public void RandomMoveImage()
+    {
+        float x = Random.Range(40f, 200f);
+        float y = Random.Range(40f, 200f);
+
+        foreach(GameObject item in _imageList)
+        {
+            item.SetActive(true);
+            item.transform.DOMove(new Vector3(x, y), 0.5f).SetEase(Ease.OutSine);
+        }
+    }
+
+    public void RollbackImagePos()
+    {
+        foreach (GameObject item in _imageList)
+        {
+            item.SetActive(false);
+            item.transform.position = new Vector3(0, 0, 0);
         }
     }
 }

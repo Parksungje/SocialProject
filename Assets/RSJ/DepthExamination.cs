@@ -9,7 +9,7 @@ public class DepthExamination : MonoBehaviour
     [SerializeField] private GameObject _checkIcon;
     [SerializeField] private TempDoccumentSO _doccument;
     [SerializeField] private bool checkDocument;
-    [SerializeField]private ErrorType _type;
+    [SerializeField] private ErrorType _type;
     public int correct;
     public int incorrect;
 
@@ -30,7 +30,21 @@ public class DepthExamination : MonoBehaviour
 
     public void CheckAnswer()
     {
-        if(_doccument._errorType == _type)
+        if(_doccument._errorType == _type && _doccument._errorType == ErrorType.None)
+        {
+            correct++;
+            Debug.Log("정답추");
+        }
+        else
+        {
+            incorrect++;
+            Debug.Log("땡 ㅋㅋㅋㅋ");
+        }
+    }
+
+    public void CheckWrong()
+    {
+        if (_doccument._errorType == _type && _doccument._errorType != ErrorType.None)
         {
             correct++;
             Debug.Log("정답추");

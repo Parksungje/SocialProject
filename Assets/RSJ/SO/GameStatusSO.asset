@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameStatusSO
   m_EditorClassIdentifier: 
   day: 0
+  maxAlloment: 05000000

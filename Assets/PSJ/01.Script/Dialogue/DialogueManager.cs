@@ -39,7 +39,6 @@ namespace PSJ._01.Script.Dialogue
             {
                 if (isTyping)
                 {
-                    // 타이핑 중이면 즉시 전체 문장 출력
                     if (typingCoroutine != null)
                         StopCoroutine(typingCoroutine);
                     contentsVal.text = currentContent;
@@ -47,7 +46,6 @@ namespace PSJ._01.Script.Dialogue
                 }
                 else
                 {
-                    // 다음 대사 출력
                     GetNextContent();
                 }
             }

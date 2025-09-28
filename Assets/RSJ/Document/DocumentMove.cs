@@ -10,6 +10,11 @@ public class DocumentMove : MonoBehaviour
     [SerializeField] private GameStatusSO day;
     [SerializeField] private GameObject btn;
 
+    private void Awake()
+    {
+        folder.transform.DOMove(targetPos.position, 1f).SetEase(Ease.OutSine);
+    }
+
     private void Update()
     {
         if(day.maxAlloment[day.day] - 1 <= Document.instance.allotment)

@@ -10,6 +10,7 @@ public class DepthExamination : MonoBehaviour
     [SerializeField] private TempDoccumentSO _doccument;
     [SerializeField] private bool checkDocument;
     [SerializeField] private ErrorType _type;
+    [SerializeField] private GameStatusSO _stat;
     public int correct;
     public int incorrect;
 
@@ -28,11 +29,28 @@ public class DepthExamination : MonoBehaviour
         }
     }
 
+    public void HideCheckDisplay()
+    {
+        _checkIcon?.SetActive(false);
+    }
+
     public void CheckAnswer()
     {
-        if(_doccument._errorType == _type && _doccument._errorType == ErrorType.None)
+        if(_doccument._errorType == _type && _doccument._errorType == ErrorType.None ||
+            (_doccument.acceptUnfair && _doccument._errorType != ErrorType.counterfeit) ||
+            (_doccument.falureUnfair && _doccument._errorType == ErrorType.None))
         {
             correct++;
+            if(_doccument.acceptUnfair)
+            {
+                //_stat.loyalty += 니 원하는 만큼;
+                //_stat.conscience -= 니 원하는 만큼;
+            }
+            else if (_doccument.falureUnfair)
+            {
+                //_stat.loyalty += 니 원하는 만큼;
+                //_stat.conscience -= 니 원하는 만큼;
+            }
             Debug.Log("정답추");
         }
         else
@@ -44,9 +62,19 @@ public class DepthExamination : MonoBehaviour
 
     public void CheckWrong()
     {
-        if (_doccument._errorType == _type && _doccument._errorType != ErrorType.None)
+        if (_doccument._errorType == _type && _doccument._errorType != ErrorType.None || _doccument.falureUnfair )
         {
             correct++;
+            if (_doccument.acceptUnfair)
+            {
+                //_stat.loyalty -= 니 원하는 만큼;
+                //_stat.conscience += 니 원하는 만큼;
+            }
+            else if (_doccument.falureUnfair)
+            {
+                //_stat.loyalty += 니 원하는 만큼;
+                //_stat.conscience -= 니 원하는 만큼;
+            }
             Debug.Log("정답추");
         }
         else

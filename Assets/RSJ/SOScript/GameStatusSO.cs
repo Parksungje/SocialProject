@@ -6,4 +6,7 @@ public class GameStatusSO : ScriptableObject
 {
     public int day;
     public List<int> maxAlloment;
+
+    public int loyalty;
+    public int conscience;
 }

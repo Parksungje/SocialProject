@@ -8,8 +8,10 @@ public class TempDoccumentSO : ScriptableObject
     public University universityEnum;
     public Region RegionEnum;
     public ErrorType _errorType;
-    public List<SpriteRenderer> _imageList;
-    
+    public List<Sprite> _imageList;
+
+    public bool acceptUnfair;
+    public bool falureUnfair;
     public string region;
     public string univ;
     public string infoName;

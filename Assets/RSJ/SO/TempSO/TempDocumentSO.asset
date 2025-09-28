@@ -15,7 +15,11 @@ MonoBehaviour:
   universityEnum: 0
   RegionEnum: 0
   _errorType: 0
-  _imageList: []
+  _imageList:
+  - {fileID: 21300000, guid: 81c7363f912c4bf4ab576f0203de713b, type: 3}
+  - {fileID: 21300000, guid: 522aa010cb431e5439c1dff35ca2a811, type: 3}
+  acceptUnfair: 0
+  falureUnfair: 0
   region: EMA
   univ: VNU
   infoName: Test

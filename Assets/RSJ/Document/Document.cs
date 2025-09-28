@@ -10,6 +10,9 @@ public class Document : MonoBehaviour
     public TempDoccumentSO tempDoccument;
     [SerializeField] private GameStatusSO stat;
     [SerializeField] private List<GameObject> _imageList;
+    [SerializeField] private GameObject DocuBtn;
+    [SerializeField] private GameObject ListBtn;
+    private bool showBtn;
 
     public int allotment = 0;
 
@@ -64,18 +67,19 @@ public class Document : MonoBehaviour
         foreach (var item in _imageList)
         {
             item.SetActive(false);
-            item.GetComponent<Image>().sprite = tempDoccument._imageList[a].sprite;
+            if(tempDoccument._imageList.Count > a)
+                item.GetComponent<Image>().sprite = tempDoccument._imageList[a];
             a++;
         }
     }
 
     public void RandomMoveImage()
-    {
-        float x = Random.Range(40f, 200f);
-        float y = Random.Range(40f, 200f);
-
+    {   
         foreach(GameObject item in _imageList)
         {
+            float x = Random.Range(800f, 1200f);
+            float y = Random.Range(500f, 700f);
+
             item.SetActive(true);
             item.transform.DOMove(new Vector3(x, y), 0.5f).SetEase(Ease.OutSine);
         }
@@ -86,7 +90,15 @@ public class Document : MonoBehaviour
         foreach (GameObject item in _imageList)
         {
             item.SetActive(false);
-            item.transform.position = new Vector3(0, 0, 0);
+            item.transform.position = new Vector3(960f, 540f, 0);
         }
+    }
+
+    public void ButtonSetUp()
+    {
+        showBtn = !showBtn;
+
+        DocuBtn.SetActive(showBtn);
+        ListBtn.SetActive(showBtn);
     }
 }

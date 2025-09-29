@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0999d8ef7ffb8a4f9c6942f70e85ca2, type: 3}
-  m_Name: DaySO
+  m_Name: Day6
   m_EditorClassIdentifier: 
   DoccumentInfo:
   - {fileID: 11400000, guid: 7661ba1fb43c7f749a757c01d5f2b0bb, type: 2}

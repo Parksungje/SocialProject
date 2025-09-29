@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ namespace PSJ._01.Script.Dialogue
         public TextMeshProUGUI textLabel;
         private Button _button;
         private DialogueChoice _choice;
+
+        public Action OnClickedCallback;
 
         private void Awake()
         {
@@ -27,6 +30,7 @@ namespace PSJ._01.Script.Dialogue
         private void OnClicked()
         {
             DialogueManager.Instance.OnChoiceSelected(_choice);
+            OnClickedCallback?.Invoke();
         }
     }
 }

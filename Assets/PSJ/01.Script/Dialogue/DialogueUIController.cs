@@ -17,6 +17,7 @@ namespace PSJ._01.Script.Dialogue
 
         private Coroutine _typingCoroutine;
         private bool _isTyping;
+        private bool _isChoiceActive;
         private string _fullText;
 
         private void Awake()
@@ -50,9 +51,9 @@ namespace PSJ._01.Script.Dialogue
                 {
                     StopTyping();
                 }
-                else
+                else if (!_isChoiceActive)
                 {
-                    DialogueManager.Instance.ShowNextLine();
+                    DialogueManager.Instance.ShowNextLine();    
                 }
             }
         }
@@ -62,6 +63,7 @@ namespace PSJ._01.Script.Dialogue
             npcNameVal.text = npc.NpcName;
             contentsVal.text = string.Empty;
             ClearChoices();
+            _isChoiceActive = false;
         }
 
         private void HandleLine(DialogueLine line)
@@ -93,35 +95,42 @@ namespace PSJ._01.Script.Dialogue
 
         private void HandleChoices(DialogueChoice[] choices)
         {
-            if (choices == null || choices.Length == 0) return;
-            if (choiceButtonPrefab == null)
+            ClearChoices();
+
+            if (choices == null || choices.Length == 0 || choiceButtonPrefab == null || choicesParent == null)
             {
-                return;
-            }
-            if (choicesParent == null)
-            {
+                _isChoiceActive = false;
                 return;
             }
 
-            ClearChoices();
+            _isChoiceActive = true;
+
             foreach (var choice in choices)
             {
                 var go = Instantiate(choiceButtonPrefab, choicesParent);
                 var btn = go.GetComponent<ChoiceButton>();
-                if (btn != null) btn.Setup(choice);
+                if (btn != null)
+                {
+                    btn.Setup(choice);
+                    btn.OnClickedCallback = () =>
+                    {
+                        _isChoiceActive = false;
+                    };
+                }
             }
         }
-
 
         private void HandleEnd()
         {
             npcNameVal.text = "";
             contentsVal.text = "";
             ClearChoices();
+            _isChoiceActive = false;
         }
 
         private void ClearChoices()
         {
+            if (choicesParent == null) return;
             for (int i = choicesParent.childCount - 1; i >= 0; i--)
                 Destroy(choicesParent.GetChild(i).gameObject);
         }

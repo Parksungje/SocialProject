@@ -9,8 +9,8 @@ namespace PSJ._01.Script.Dialogue
     {
         public string text;
         public int nextLineIndex = -2;
-        public int lieImpact = 0;
-        public bool isLie = false;
+        public int lieImpact;
+        public bool isLie;
         public UnityEvent onSelect;
     }
 

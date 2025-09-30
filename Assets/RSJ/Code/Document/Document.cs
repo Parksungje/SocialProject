@@ -59,6 +59,17 @@ public class Document : MonoBehaviour
         SetImage();
     }
 
+    private void CalculMoney()
+    {
+        stat.playerMoney += 150 + (today[stat.day].Correct * 5) - (today[stat.day].incorrect * 10);
+
+        if(stat.day > 30)
+        {
+
+            //대충 월급
+        }
+    }
+
     private void SetImage()
     {
         Debug.Assert(tempDoccument != null, "tempDoccumnt didn't set");

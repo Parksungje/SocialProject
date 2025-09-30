@@ -1,25 +1,28 @@
-public enum University
+ï»¿namespace RSJ.Code
 {
-    VNU, // 1±Þ ´ëÇÐ
-    CIT, // 2±Þ * 
-    OCC, // 3 *
-    CCC, // 4
-}
+    public enum University
+    {
+        VNU, // 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        CIT, // 2ï¿½ï¿½ * 
+        OCC, // 3 *
+        CCC, // 4
+    }
 
-public enum Region
-{
-    EMA, // 1µî±Þ
-    CIZ, // 2µî±Þ
-    LP, // 3
-    PSU, // µî±Þ
-    EPC, // 4µî±Þ
-}
+    public enum Region
+    {
+        EMA, // 1ï¿½ï¿½ï¿½
+        CIZ, // 2ï¿½ï¿½ï¿½
+        LP, // 3
+        PSU, // ï¿½ï¿½ï¿½
+        EPC, // 4ï¿½ï¿½ï¿½
+    }
 
-public enum ErrorType
-{
-    None = 0,
-    Incorrect,
-    typist,
-    counterfeit,
-    Discrimination
+    public enum ErrorType
+    {
+        None = 0,
+        Incorrect,
+        typist,
+        counterfeit,
+        Discrimination
+    }
 }

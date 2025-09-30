@@ -22,7 +22,7 @@ public class DocumentMove : MonoBehaviour
 
         if (day.maxAlloment[day.day] <= Document.instance.allotment)
         {
-            //¿©±â¼­ È­¸éÀüÈ¯ ÇÏ°Ô ÇØÁÖ
+            //ï¿½ï¿½ï¿½â¼­ È­ï¿½ï¿½ï¿½ï¿½È¯ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 

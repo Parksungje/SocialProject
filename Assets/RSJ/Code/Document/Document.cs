@@ -24,7 +24,7 @@ public class Document : MonoBehaviour
             instance = this;
     }
 
-    #region Á¤º¸ ´ãÀº °Å
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     [SerializeField] private TextMeshProUGUI naming;
     [SerializeField] private TextMeshProUGUI Address;
     [SerializeField] private TextMeshProUGUI sexuality;
@@ -57,6 +57,17 @@ public class Document : MonoBehaviour
         }
 
         SetImage();
+    }
+
+    private void CalculMoney()
+    {
+        stat.playerMoney += 150 + (today[stat.day].Correct * 5) - (today[stat.day].incorrect * 10);
+
+        if(stat.day > 30)
+        {
+
+            //´ëÃæ ¿ù±Þ
+        }
     }
 
     private void SetImage()

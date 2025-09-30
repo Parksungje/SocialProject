@@ -9,4 +9,6 @@ public class GameStatusSO : ScriptableObject
 
     public int loyalty;
     public int conscience;
+
+    public int playerMoney;
 }

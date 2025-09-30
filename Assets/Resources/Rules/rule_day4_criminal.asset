@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
-  m_Name: rule_day1_major
+  m_Name: rule_day4_criminal
   m_EditorClassIdentifier: 
-  ruleId: rule_day1_major
-  ruleName: "\uC804\uACF5 \uBD88\uC77C\uCE58 \uD0C8\uB77D"
+  ruleId: rule_day2_normal
+  ruleName: "\uAE30\uBCF8 \uADDC\uCE59"
   ruleType: 0
-  applicableFromDay: 1
-  applicableToDay: 6
-  ruleDescription: "\uC9C0\uC6D0 \uC9C1\uBB34\uC640 \uC804\uACF5\uC774 \uC77C\uCE58\uD558\uC9C0
-    \uC54A\uB294 \uACBD\uC6B0 \uD0C8\uB77D \uCC98\uB9AC"
+  applicableFromDay: 4
+  applicableToDay: 13
+  ruleDescription: "\uAE30\uBCF8 \uADDC\uCE59 \uC801\uC6A9, \uBC94\uC8C4\uC790\uC758
+    \uACBD\uC6B0 \uD0C8\uB77D"
   isEthical: 1
-  conditions: []
-  enforcedDecision: 0
-  priorityLevel: 5
-  loyaltyImpactOnFollow: 2
+  conditions:
+  - field: 7
+    operatorType: 6
+    value: 
+  enforcedDecision: 2
+  priorityLevel: 4
+  loyaltyImpactOnFollow: 3
   conscienceImpactOnFollow: 0
-  loyaltyImpactOnViolate: 0
+  loyaltyImpactOnViolate: -2
   conscienceImpactOnViolate: 0

@@ -10,27 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
-  m_Name: rule_day7_corvus
+  m_Name: rule_day12_corvus2
   m_EditorClassIdentifier: 
-  ruleId: rule_day7_corvus
-  ruleName: "\uCF54\uB974\uBD80\uC2A4 \uCD9C\uC2E0 \uBCF4\uB958"
-  ruleType: 1
-  applicableFromDay: 7
+  ruleId: rule_day2_normal
+  ruleName: "\uAE30\uBCF8 \uADDC\uCE59"
+  ruleType: 0
+  applicableFromDay: 12
   applicableToDay: -1
-  ruleDescription: "\uCF54\uB974\uBD80\uC2A4 \uC9C0\uC5ED \uCD9C\uC2E0 \uC9C0\uC6D0\uC790\uB294
-    \uD2B9\uBCC4\uD55C \uC0AC\uC720\uAC00 \uC5C6\uB294 \uD55C \uBCF4\uB958\n40\uC138
-    \uC774\uC0C1 \uC9C0\uC6D0\uC790 \uD0C8\uB77D"
+  ruleDescription: "\uC774\uC720\uBD88\uBB38 \uCF54\uB974\uBD80\uC2A4 \uCD9C\uC2E0\uC774\uBA74
+    \uD0C8\uB77D"
   isEthical: 0
   conditions:
   - field: 0
     operatorType: 0
     value: '"Corvus"'
+  - field: 1
+    operatorType: 4
+    value: 1
+  - field: 4
+    operatorType: 4
+    value: 1
+  - field: 5
+    operatorType: 4
+    value: 1
   - field: 6
     operatorType: 4
-    value: 40
+    value: 1
   enforcedDecision: 2
-  priorityLevel: 10
-  loyaltyImpactOnFollow: 3
-  conscienceImpactOnFollow: -2
-  loyaltyImpactOnViolate: -5
-  conscienceImpactOnViolate: 3
+  priorityLevel: 4
+  loyaltyImpactOnFollow: 6
+  conscienceImpactOnFollow: -7
+  loyaltyImpactOnViolate: -8
+  conscienceImpactOnViolate: 8

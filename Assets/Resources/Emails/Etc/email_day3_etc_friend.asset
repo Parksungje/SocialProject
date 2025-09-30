@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
+  m_Name: email_day3_etc_friend
+  m_EditorClassIdentifier: 
+  emailId: email_day3_etc_friend
+  emailType: 3
+  applicableDay: 3
+  senderName: "\uAE40\uCCA0\uC218"
+  senderTitle: "\uAE30\uD0C0"
+  subject: "\u3141\u3134\u3147\u3139"
+  body: "\uC57C \uB108 \uB300\uAE30\uC5C5 \uCDE8\uC5C5\uD588\uB2E4\uB9E4?/n\n\u3148\u3134
+    \uCD95\uD558\uD55C\uB2E4 \uC0C8\uAE84 \u314B\u314B\u314B\u314B\u314B/n\n\uB098\uC911\uC5D0
+    \uD55C\uC794\uD558\uC790 \uADF8\uB54C\uBD10"
+  hasAttachment: 0
+  attachmentName: 
+  isMandatory: 0

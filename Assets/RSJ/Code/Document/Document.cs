@@ -24,7 +24,7 @@ public class Document : MonoBehaviour
             instance = this;
     }
 
-    #region Á¤º¸ ´ãÀº °Å
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     [SerializeField] private TextMeshProUGUI naming;
     [SerializeField] private TextMeshProUGUI Address;
     [SerializeField] private TextMeshProUGUI sexuality;

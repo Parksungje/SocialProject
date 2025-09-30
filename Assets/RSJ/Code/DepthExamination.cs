@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using RSJ.Code;
 
 public class DepthExamination : MonoBehaviour
 {
@@ -43,20 +44,20 @@ public class DepthExamination : MonoBehaviour
             correct++;
             if(_doccument.acceptUnfair)
             {
-                //_stat.loyalty += ´Ï ¿øÇÏ´Â ¸¸Å­;
-                //_stat.conscience -= ´Ï ¿øÇÏ´Â ¸¸Å­;
+                //_stat.loyalty += ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
+                //_stat.conscience -= ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
             }
             else if (_doccument.falureUnfair)
             {
-                //_stat.loyalty += ´Ï ¿øÇÏ´Â ¸¸Å­;
-                //_stat.conscience -= ´Ï ¿øÇÏ´Â ¸¸Å­;
+                //_stat.loyalty += ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
+                //_stat.conscience -= ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
             }
-            Debug.Log("Á¤´äÃß");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         else
         {
             incorrect++;
-            Debug.Log("¶¯ ¤»¤»¤»¤»");
+            Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
@@ -67,20 +68,20 @@ public class DepthExamination : MonoBehaviour
             correct++;
             if (_doccument.acceptUnfair)
             {
-                //_stat.loyalty -= ´Ï ¿øÇÏ´Â ¸¸Å­;
-                //_stat.conscience += ´Ï ¿øÇÏ´Â ¸¸Å­;
+                //_stat.loyalty -= ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
+                //_stat.conscience += ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
             }
             else if (_doccument.falureUnfair)
             {
-                //_stat.loyalty += ´Ï ¿øÇÏ´Â ¸¸Å­;
-                //_stat.conscience -= ´Ï ¿øÇÏ´Â ¸¸Å­;
+                //_stat.loyalty += ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
+                //_stat.conscience -= ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å­;
             }
-            Debug.Log("Á¤´äÃß");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         else
         {
             incorrect++;
-            Debug.Log("¶¯ ¤»¤»¤»¤»");
+            Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
     }
 

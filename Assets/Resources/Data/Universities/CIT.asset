@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2764f076854d6db94f12e5632a538b, type: 3}
+  m_Name: CIT
+  m_EditorClassIdentifier: 
+  universityName: "\uC13C\uD0C0\uC6B0\uB8E8\uC2A4 \uACF5\uACFC\uB300\uD559\uAD50"
+  abbreviation: CIT
+  tier: 1
+  description: "\uC774\uACF5\uACC4 \uCD5C\uACE0 \uAD8C\uC704"
+  foundedYear: 1962
+  location: 0
+  admissionRate: 2
+  annualTuition: 12000000
+  employmentRate: 95
+  socialPrestige: 9
+  publicPerception: 

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7705dfbdeaff4d4184cbcd766cf82749, type: 3}
+  m_Name: dialogue_day12_conscience
+  m_EditorClassIdentifier: 
+  requiredMood: 1
+  applicableDay: 12
+  innerThought: "\uC190\uC5D0 \uC954 \uAC74 \uB9CE\uC544\uC84C\uB294\uB370, \uB9C8\uC74C\uC740
+    \uB354 \uBE44\uC5B4\uAC04\uB2E4.\\n\n\uB0B4 \uC120\uD0DD\uC740 \uAC00\uC871\uC744
+    \uC704\uD574\uC11C\uB77C \uD588\uC9C0\uB9CC,\\n\n\uACB0\uAD6D \uAC00\uC871\uC5D0\uAC8C\uC11C
+    \uBA40\uC5B4\uC9C0\uB294 \uAE38\uC774\uC5C8\uB2E4.\\n\n\uC591\uC2EC\uC758 \uBB34\uAC8C\uAC00
+    \uB098\uB97C \uC9D3\uB204\uB978\uB2E4."
+  spouseDialogue: "\uC774\uC820 \uB9D0\uD558\uC9C0 \uC54A\uC544\uB3C4 \uC54C\uACA0\uC5B4\uC694.\\n\n\uB2F9\uC2E0\uC774
+    \uC5BC\uB9C8\uB098 \uAD34\uB85C\uC6B4\uC9C0.\\n\n\uC774\uC81C\uB77C\uB3C4 \uB2A6\uC9C0
+    \uC54A\uC558\uC5B4\uC694.\\n\n\uB0B4\uB824\uB193\uC744 \uC218 \uC788\uB2E4\uBA74,
+    \uC6B0\uB9AC\uC640 \uB2E4\uC2DC \uC6C3\uC744 \uC218 \uC788\uC5B4\uC694."
+  daughterDialogue: "\uC544\uBE60, \uB09C \uADF8\uB0E5 \uC61B\uB0A0 \uC544\uBE60\uAC00
+    \uC88B\uC544.\\n\n\uC9C0\uAE08 \uC544\uBE60\uB294 \uB108\uBB34 \uBA40\uB9AC \uC788\uB294
+    \uAC83 \uAC19\uC544."

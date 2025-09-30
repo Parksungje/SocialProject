@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
+  m_Name: email_day8_News
+  m_EditorClassIdentifier: 
+  emailId: email_day1_guideline
+  emailType: 2
+  applicableDay: 1
+  senderName: "\uB274\uC2A4\uBA54\uCE74"
+  senderTitle: "\uB274\uC2A4"
+  subject: "[\uC77C\uAC04] \uCF54\uB974\uBD80\uC2A4 \uCDE8\uC5C5\uB09C \uC774\uB300\uB85C
+    \uAD1C\uCC2E\uC740\uAC00..."
+  body: "\uCD5C\uADFC \uCF54\uB974\uBD80\uC2A4\uC9C0\uC5ED\uC758 \uCDE8\uC5C5\uB09C\uC774
+    \uC2EC\uD574\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4./n\n/n\n\uCF54\uB974\uBD80\uC2A4
+    \uC8FC\uBBFC A\uC528, \uC694\uC998 \uAE38\uAC70\uB9AC\uC5D0 \uC9C1\uC5C5\uC774
+    \uC5C6\uB294 \uC0AC\uB78C\uC774 \uB9CE\uB2E4\uACE0 \uC598\uAE30\uD569\uB2C8\uB2E4./n\n/n\n\uC804\uBB38\uAC00
+    \uBC94\uC8C4\uC790\uC528\uC5D0\uAC8C \uC9C8\uC758\uC751\uB2F5 \uD574 \uBCF4\uC558\uC2B5\uB2C8\uB2E4./n\n..."
+  hasAttachment: 0
+  attachmentName: 
+  isMandatory: 0

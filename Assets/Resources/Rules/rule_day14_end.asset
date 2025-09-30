@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
+  m_Name: rule_day14_end
+  m_EditorClassIdentifier: 
+  ruleId: rule_day13_vnu
+  ruleName: "VNU \uCD9C\uC2E0 \uC6B0\uB300"
+  ruleType: 2
+  applicableFromDay: 14
+  applicableToDay: -1
+  ruleDescription: "25 ~ 29\uC138\uC758 \uC9C1\uC6D0\uB9CC \uBF51\uC744 \uAC83\n\uC5D0\uB9AC\uB2E4\uB204\uC2A4\uC640
+    \uC5D0\uB370\uC544 \uB3C4\uC2DC \uC9C1\uC6D0 \uB9CC \uBF51\uC744 \uAC83\nVNU
+    / CIT \uCD9C\uC2E0 \uB9CC \uBF51\uC744 \uAC83"
+  isEthical: 0
+  conditions:
+  - field: 6
+    operatorType: 4
+    value: 25
+  - field: 6
+    operatorType: 5
+    value: 29
+  - field: 0
+    operatorType: 0
+    value: '"Eridanus"'
+  - field: 0
+    operatorType: 0
+    value: '"Edea"'
+  - field: 1
+    operatorType: 5
+    value: 2
+  enforcedDecision: 1
+  priorityLevel: 15
+  loyaltyImpactOnFollow: 6
+  conscienceImpactOnFollow: -4
+  loyaltyImpactOnViolate: -7
+  conscienceImpactOnViolate: 5

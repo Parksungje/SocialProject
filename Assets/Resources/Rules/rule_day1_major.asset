@@ -20,7 +20,10 @@ MonoBehaviour:
   ruleDescription: "\uC9C0\uC6D0 \uC9C1\uBB34\uC640 \uC804\uACF5\uC774 \uC77C\uCE58\uD558\uC9C0
     \uC54A\uB294 \uACBD\uC6B0 \uD0C8\uB77D \uCC98\uB9AC"
   isEthical: 1
-  conditions: []
+  conditions:
+  - field: 3
+    operatorType: 0
+    value: 
   enforcedDecision: 0
   priorityLevel: 5
   loyaltyImpactOnFollow: 2

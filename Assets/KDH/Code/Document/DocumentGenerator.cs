@@ -18,7 +18,10 @@ namespace KDH.Code.Document
         [Header("데이터베이스")]
         [SerializeField] private UniversityData[] universities;
         [SerializeField] private RegionData[] regions;
-        [SerializeField] private Sprite[] applicantPhotos;
+        
+        [Header("지원자 사진 (성별 분리)")]
+        [SerializeField] private Sprite[] maleApplicantPhotos;
+        [SerializeField] private Sprite[] femaleApplicantPhotos;
         
         [Header("이름 데이터")]
         [SerializeField] private string[] lastNames;
@@ -61,9 +64,13 @@ namespace KDH.Code.Document
         {
             universities = Resources.LoadAll<UniversityData>("Data/Universities");
             regions = Resources.LoadAll<RegionData>("Data/Regions");
-            applicantPhotos = Resources.LoadAll<Sprite>("Sprites/Applicants");
             
-            Debug.Log($"Loaded: {universities.Length} universities, {regions.Length} regions, {applicantPhotos.Length} photos");
+            // 성별별 사진 로드
+            maleApplicantPhotos = Resources.LoadAll<Sprite>("Sprites/Applicants/Male");
+            femaleApplicantPhotos = Resources.LoadAll<Sprite>("Sprites/Applicants/Female");
+            
+            Debug.Log($"Loaded: {universities.Length} universities, {regions.Length} regions");
+            Debug.Log($"Loaded Photos: {maleApplicantPhotos.Length} male, {femaleApplicantPhotos.Length} female");
         }
         
         /// <summary>
@@ -77,7 +84,29 @@ namespace KDH.Code.Document
             
             firstNamesFemale = new string[] { "서연", "민서", "지우", "서현", "지민", "수아", "하은", "예은", "윤서", "채원" };
             
-            majors = new string[] { "컴퓨터공학", "전자공학", "기계공학", "산업공학", "경영학", "경제학", "화학공학", "생명공학", "수학", "물리학", "법학", "행정학" };
+            // 전공 데이터 (채용과 연관성 높은 순서)
+            majors = new string[] 
+            { 
+                // IT/기술 계열 (회사 주력 분야)
+                "컴퓨터공학", "소프트웨어공학", "정보통신공학", "전자공학", "반도체공학",
+                "인공지능학", "데이터사이언스", "사이버보안학",
+                
+                // 공학 계열
+                "기계공학", "산업공학", "화학공학", "신소재공학", "생명공학", 
+                "환경공학", "건축공학", "항공우주공학",
+                
+                // 자연과학 계열
+                "수학", "통계학", "물리학", "화학", "생명과학",
+                
+                // 경영/경제 계열
+                "경영학", "경영정보학", "경제학", "회계학", "재무학", "마케팅학",
+                
+                // 인문/사회 계열
+                "법학", "행정학", "심리학", "사회학", "정치외교학",
+                
+                // 기타
+                "디자인학", "미디어학", "언어학", "교육학", "간호학"
+            };
             
             companyNames = new string[] { "테크노베이션", "퓨처시스템즈", "글로벌솔루션", "디지털웨이브", "스마트인더스트리", "이노베이션랩", "넥스트제너레이션" };
             
@@ -145,10 +174,14 @@ namespace KDH.Code.Document
             // 연락처
             applicant.phoneNumber = $"010-{random.Next(1000, 10000)}-{random.Next(1000, 10000)}";
             
-            // 사진
-            if (applicantPhotos.Length > 0)
+            // 사진 (성별에 맞게)
+            if (applicant.gender == "남성" && maleApplicantPhotos.Length > 0)
             {
-                applicant.photoSprite = applicantPhotos[random.Next(applicantPhotos.Length)];
+                applicant.photoSprite = maleApplicantPhotos[random.Next(maleApplicantPhotos.Length)];
+            }
+            else if (applicant.gender == "여성" && femaleApplicantPhotos.Length > 0)
+            {
+                applicant.photoSprite = femaleApplicantPhotos[random.Next(femaleApplicantPhotos.Length)];
             }
         }
         

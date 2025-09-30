@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7637118754607463203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5674291091691774280}
+  - component: {fileID: 2521320256379121909}
+  m_Layer: 0
+  m_Name: FamilyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5674291091691774280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637118754607463203}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2521320256379121909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637118754607463203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456c40a5dcec4eb1b00910a92f3f445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allDialogues:
+  - {fileID: 11400000, guid: 463439025ea244a4f814028823a94718, type: 2}
+  - {fileID: 11400000, guid: fa8a49f2bacea6441b6741d695363d92, type: 2}
+  - {fileID: 11400000, guid: d56d33b0a31300a46b76079a4d6f8b5c, type: 2}
+  - {fileID: 11400000, guid: 4dddf0da09c39954187192373698565c, type: 2}
+  - {fileID: 11400000, guid: a46f53d0b5991494791c5539db16190a, type: 2}
+  - {fileID: 11400000, guid: a46c5707cea37a349b1c6b82e2ce81c4, type: 2}
+  - {fileID: 11400000, guid: cce2ecf3974be7e4a99cad294c868d9b, type: 2}
+  - {fileID: 11400000, guid: 4309a49746d6af94892f2cb58656eddb, type: 2}
+  - {fileID: 11400000, guid: 895a8cf594744064cace2ba8eb5018fc, type: 2}
+  - {fileID: 11400000, guid: dbfb71ce6debf4e458d9540da723d7bd, type: 2}
+  - {fileID: 11400000, guid: 99951945a5c3e1942bab4b64b4623839, type: 2}
+  - {fileID: 11400000, guid: 046d2cbadb72454459bfa6b2108d1350, type: 2}
+  - {fileID: 11400000, guid: 5e1e95304d70ebc499f4a86704592717, type: 2}
+  - {fileID: 11400000, guid: d907e71c77e54bc44a235bed86afde55, type: 2}
+  - {fileID: 11400000, guid: 03bffd437a501e949a2876d7592f052c, type: 2}
+  - {fileID: 11400000, guid: 5e8f19373be1e01408da1ed7715fbf02, type: 2}
+  - {fileID: 11400000, guid: 19e662c244fb5764fbb00fcf9ef7e47c, type: 2}
+  - {fileID: 11400000, guid: e7a94d84d87246e4392a9e8f4194e465, type: 2}
+  - {fileID: 11400000, guid: c66e979a27f434c448d611ca668c870a, type: 2}
+  - {fileID: 11400000, guid: c778fa2956bf1d0489626286b035f2d4, type: 2}
+  currentDialogue:
+    innerThought: 
+    spouseDialogue: 
+    daughterDialogue: 

@@ -66,5 +66,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c998f3d880da484cbf2be3c2de5b6d2, type: 2}
   todayEmails: []
   mandatoryEmail:
-    emailData: {fileID: 11400000, guid: 20dcc9917b31c234cbfa8a98b98e1ac2, type: 2}
+    emailData: {fileID: 0}
     isRead: 0

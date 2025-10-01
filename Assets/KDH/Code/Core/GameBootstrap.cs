@@ -29,17 +29,26 @@ namespace KDH.Code.Core
         [Header("초기화 순서")]
         [SerializeField] private bool initializeOnAwake = true;
         
+        // ★ 중요: static으로 선언해서 씬 전환 후에도 유지
         private static bool hasInitialized = false;
         
         private void Awake()
         {
-            // 한 번만 초기화 (중복 방지)
-            if (hasInitialized) return;
+            // ★ 한 번만 초기화 (전체 게임에서 딱 한 번)
+            if (hasInitialized)
+            {
+                Debug.Log("[Bootstrap] Already initialized. Skipping...");
+                Destroy(gameObject);  // GameBootstrap 자체는 파괴
+                return;
+            }
             
             if (initializeOnAwake)
             {
                 InitializeGame();
                 hasInitialized = true;
+                
+                // GameBootstrap은 초기화 후 파괴
+                Destroy(gameObject);
             }
         }
         
@@ -69,6 +78,7 @@ namespace KDH.Code.Core
             // 유틸리티 매니저 초기화
             InitializeManager<AudioManager>(audioManagerPrefab, "AudioManager");
             InitializeManager<ScreenManager>(screenManagerPrefab, "ScreenManager");
+            InitializeManager<SceneTransitionManager>(sceneTransitionManagerPrefab, "SceneTransitionManager");
             
             Debug.Log("=== Game Bootstrap Completed ===");
         }
@@ -78,7 +88,7 @@ namespace KDH.Code.Core
         /// </summary>
         private void InitializeManager<T>(GameObject prefab, string managerName) where T : MonoBehaviour
         {
-            // 이미 존재하는지 확인
+            // ★ 이미 존재하는지 먼저 확인
             T existingManager = FindObjectOfType<T>();
             
             if (existingManager != null)

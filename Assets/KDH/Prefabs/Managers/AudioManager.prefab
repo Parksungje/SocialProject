@@ -48,9 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 364394056952055769}
   sfxSource: {fileID: 9090325908049463614}
-  officeBGM: {fileID: 0}
+  officeBGM: {fileID: 8300000, guid: de8ec68db18f16949b9d91e19d770f28, type: 3}
   familyBGM: {fileID: 0}
-  endingBGM: {fileID: 0}
+  endingBGM: {fileID: 8300000, guid: 3610190f27d757c42858d37862b2929e, type: 3}
   stampApproveSound: {fileID: 8300000, guid: f11bb13ab0e3e854484c2c955e170792, type: 3}
   stampRejectSound: {fileID: 8300000, guid: f11bb13ab0e3e854484c2c955e170792, type: 3}
   paperFlipSound: {fileID: 8300000, guid: b4541eb16f390a94c8ced1ae8021a9bc, type: 3}

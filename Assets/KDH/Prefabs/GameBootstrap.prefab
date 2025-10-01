@@ -48,13 +48,13 @@ MonoBehaviour:
   parameterManagerPrefab: {fileID: 5632621413238623719, guid: 6977110f15809524c94fd037056becb2, type: 3}
   economyManagerPrefab: {fileID: 3881065497705751825, guid: b4c3bed5f9f6159409993db34f3f69c5, type: 3}
   documentManagerPrefab: {fileID: 7137735128840697379, guid: ea5ee552dab4ad74cb67d17c0f0b34ae, type: 3}
-  emailManagerPrefab: {fileID: 0}
+  emailManagerPrefab: {fileID: 8560482061199675018, guid: 3b5331b97017f4a47a4ee560f6aad33a, type: 3}
   familyManagerPrefab: {fileID: 7637118754607463203, guid: 9b564c51963eee54eb566d449e2cde11, type: 3}
   endingManagerPrefab: {fileID: 5269180069764192014, guid: 95e8e7ebbf0fdad4e8d963cd7ec34e4c, type: 3}
   saveManagerPrefab: {fileID: 1635349550096575182, guid: a3f7ce9d70126494b864dd07f996bbd9, type: 3}
   ruleEnginePrefab: {fileID: 1286662275454207749, guid: c4b3ab690fde6ba40becdb6c02e60b50, type: 3}
   documentGeneratorPrefab: {fileID: 7653867985595738891, guid: 5614bfc8aec4fbd46b8471a5381d890d, type: 3}
-  audioManagerPrefab: {fileID: 0}
+  audioManagerPrefab: {fileID: 4778065993164409556, guid: 6f5b36fc51aa149448afd0632cbe496b, type: 3}
   screenManagerPrefab: {fileID: 7170968710837517712, guid: 8f8694712c2b6514fa49747679d900d7, type: 3}
   sceneTransitionManagerPrefab: {fileID: 6457761082849721921, guid: 0c5f3fa484e2b754d96e806c9fad759f, type: 3}
   initializeOnAwake: 1

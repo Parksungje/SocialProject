@@ -44,16 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f99f5077c2b4a39b0baba6b205a7f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerPrefab: {fileID: 0}
-  parameterManagerPrefab: {fileID: 0}
-  economyManagerPrefab: {fileID: 0}
-  documentManagerPrefab: {fileID: 0}
+  gameManagerPrefab: {fileID: 2635898963191047658, guid: d7c96d4b832579648a526f9992547009, type: 3}
+  parameterManagerPrefab: {fileID: 5632621413238623719, guid: 6977110f15809524c94fd037056becb2, type: 3}
+  economyManagerPrefab: {fileID: 3881065497705751825, guid: b4c3bed5f9f6159409993db34f3f69c5, type: 3}
+  documentManagerPrefab: {fileID: 7137735128840697379, guid: ea5ee552dab4ad74cb67d17c0f0b34ae, type: 3}
   emailManagerPrefab: {fileID: 0}
-  familyManagerPrefab: {fileID: 0}
-  endingManagerPrefab: {fileID: 0}
-  saveManagerPrefab: {fileID: 0}
-  ruleEnginePrefab: {fileID: 0}
-  documentGeneratorPrefab: {fileID: 0}
+  familyManagerPrefab: {fileID: 7637118754607463203, guid: 9b564c51963eee54eb566d449e2cde11, type: 3}
+  endingManagerPrefab: {fileID: 5269180069764192014, guid: 95e8e7ebbf0fdad4e8d963cd7ec34e4c, type: 3}
+  saveManagerPrefab: {fileID: 1635349550096575182, guid: a3f7ce9d70126494b864dd07f996bbd9, type: 3}
+  ruleEnginePrefab: {fileID: 1286662275454207749, guid: c4b3ab690fde6ba40becdb6c02e60b50, type: 3}
+  documentGeneratorPrefab: {fileID: 7653867985595738891, guid: 5614bfc8aec4fbd46b8471a5381d890d, type: 3}
   audioManagerPrefab: {fileID: 0}
-  screenManagerPrefab: {fileID: 0}
+  screenManagerPrefab: {fileID: 7170968710837517712, guid: 8f8694712c2b6514fa49747679d900d7, type: 3}
   initializeOnAwake: 1

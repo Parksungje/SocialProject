@@ -36,5 +36,5 @@ MonoBehaviour:
     \uC5BB\uC5C8\uC2B5\uB2C8\uB2E4."
   coreMessage: "\uC633\uC740 \uAE38\uC740 \uC27D\uC9C0 \uC54A\uB2E4."
   showStatistics: 1
-  endingImage: {fileID: 21300000, guid: 42716a2f17a538140a49773ec3ed1f72, type: 3}
+  endingImage: {fileID: 21300000, guid: 9f78d58b29d06854c9a61780f07e865e, type: 3}
   themeColor: {r: 0.2901961, g: 0.5647059, b: 0.8862745, a: 1}

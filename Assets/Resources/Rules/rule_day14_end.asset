@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
   m_Name: rule_day14_end
   m_EditorClassIdentifier: 
-  ruleId: rule_day13_vnu
-  ruleName: "VNU \uCD9C\uC2E0 \uC6B0\uB300"
+  ruleId: rule_day14_end
+  ruleName: "\uB05D"
   ruleType: 2
   applicableFromDay: 14
   applicableToDay: -1
@@ -30,10 +30,10 @@ MonoBehaviour:
     value: 29
   - field: 0
     operatorType: 0
-    value: '"Eridanus"'
+    value: Eridanus
   - field: 0
     operatorType: 0
-    value: '"Edea"'
+    value: Edea
   - field: 1
     operatorType: 5
     value: 2

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
   m_Name: email_day3_News
   m_EditorClassIdentifier: 
-  emailId: email_day1_guideline
+  emailId: email_day3_News
   emailType: 2
-  applicableDay: 1
+  applicableDay: 3
   senderName: "\uB274\uC2A4\uBA54\uCE74"
   senderTitle: "\uB274\uC2A4"
   subject: "[\uC77C\uAC04] \uBC94\uC8C4\uB97C \uBC1B\uC9C0 \uC54A\uB294 \uD68C\uC0AC?!?!?!?!"

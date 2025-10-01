@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
   m_Name: email_day14_guideline
   m_EditorClassIdentifier: 
-  emailId: email_day7_guideline
+  emailId: email_day14_guideline
   emailType: 0
   applicableDay: 12
   senderName: "\uC774\uD004\uB9AC\uD2F0 \uCF54\uD37C\uB808\uC774\uC158"

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
   m_Name: email_day7_etc_friend
   m_EditorClassIdentifier: 
-  emailId: email_day3_etc_friend
+  emailId: email_day7_etc_friend
   emailType: 3
   applicableDay: 6
   senderName: "\uB178\uC7AC\uC218"

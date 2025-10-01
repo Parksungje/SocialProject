@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
-  m_Name: email_day1_etc
+  m_Name: email_day2_etc
   m_EditorClassIdentifier: 
-  emailId: email_day5_etc
+  emailId: email_day2_etc
   emailType: 3
-  applicableDay: 5
+  applicableDay: 2
   senderName: HIFUMIDAISUKI
   senderTitle: "\uAE30\uD0C0"
   subject: "\uD788\uD6C4\uBBF8\uC5D0\uAC8C"

@@ -1,11 +1,12 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace KDH.Code.UI
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TMPButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class TMPButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("텍스트 설정")]
         [Tooltip("원본 텍스트 (자동으로 TMP_Text에서 가져옴)")]
@@ -30,6 +31,7 @@ namespace KDH.Code.UI
         [Header("컴포넌트 참조")]
         private TMP_Text tmpText;
         private AudioSource audioSource;
+        private Button button;
     
         [Tooltip("AudioSource를 자동으로 생성할지 여부")]
         [SerializeField] private bool createAudioSource = true;
@@ -48,6 +50,19 @@ namespace KDH.Code.UI
         
             // 원본 텍스트 저장
             originalText = tmpText.text;
+        
+            // Button 컴포넌트 찾기 (부모 또는 같은 GameObject에서)
+            button = GetComponentInParent<Button>();
+            if (button == null)
+            {
+                button = GetComponent<Button>();
+            }
+            
+            // Button에 클릭 리스너 추가 (기존 onClick은 유지)
+            if (button != null)
+            {
+                button.onClick.AddListener(OnButtonClicked);
+            }
         
             // AudioSource 설정
             SetupAudioSource();
@@ -93,12 +108,15 @@ namespace KDH.Code.UI
         }
 
         /// <summary>
-        /// 마우스 클릭했을 때
+        /// 버튼 클릭 시 호출 (Button.onClick을 통해)
+        /// IPointerClickHandler 대신 Button의 onClick 이벤트 사용
         /// </summary>
-        public void OnPointerClick(PointerEventData eventData)
+        private void OnButtonClicked()
         {
             // 클릭 사운드 재생
             PlaySound(clickSound);
+            
+            Debug.Log($"[TMPButtonInteraction] Button clicked: {gameObject.name}");
         }
 
         /// <summary>
@@ -147,6 +165,15 @@ namespace KDH.Code.UI
         {
             hoverSound = hover;
             clickSound = click;
+        }
+        
+        private void OnDestroy()
+        {
+            // Button 리스너 제거
+            if (button != null)
+            {
+                button.onClick.RemoveListener(OnButtonClicked);
+            }
         }
     }
 }

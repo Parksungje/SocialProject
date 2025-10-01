@@ -25,12 +25,12 @@ namespace KDH.Code.UI
         [SerializeField] private Button approveButton;
         [SerializeField] private Button rejectButton;
         
-        [Header("피드백 UI")]
-        [SerializeField] private GameObject feedbackPanel;
-        [SerializeField] private TextMeshProUGUI feedbackText;
-        [SerializeField] private Image feedbackIcon;
-        [SerializeField] private Sprite correctIcon;
-        [SerializeField] private Sprite incorrectIcon;
+        [Header("도장 효과")]
+        [SerializeField] private Image stampImage;           // 도장 이미지
+        [SerializeField] private Sprite approvedStamp;       // 승인 도장 스프라이트
+        [SerializeField] private Sprite rejectedStamp;       // 거부 도장 스프라이트
+        [SerializeField] private AudioClip stampSound;       // 도장 사운드
+        [SerializeField] private float stampDisplayTime = 1.5f; // 도장 표시 시간
         
         private void Start()
         {
@@ -54,8 +54,13 @@ namespace KDH.Code.UI
             rulesButton.onClick.AddListener(OnRulesButtonClicked);
             
             // 초기 상태
-            feedbackPanel.SetActive(false);
             documentPanel.SetActive(false);
+            
+            // 도장 이미지 초기화
+            if (stampImage != null)
+            {
+                stampImage.gameObject.SetActive(false);
+            }
         }
         
         /// <summary>
@@ -157,6 +162,9 @@ namespace KDH.Code.UI
             // 버튼 비활성화
             EnableDecisionButtons(false);
             
+            // 도장 효과 표시
+            ShowStampEffect(decision);
+            
             // DocumentManager에 전달
             if (DocumentManager.Instance != null)
             {
@@ -165,44 +173,95 @@ namespace KDH.Code.UI
         }
         
         /// <summary>
+        /// 도장 효과 표시
+        /// </summary>
+        // UIMainGame.cs에 추가
+
+        private void ShowStampEffect(Decision decision)
+        {
+            if (stampImage == null) return;
+    
+            // 도장 이미지 설정
+            if (decision == Decision.Approve)
+            {
+                stampImage.sprite = approvedStamp;
+            }
+            else
+            {
+                stampImage.sprite = rejectedStamp;
+            }
+    
+            // 도장 표시 + 애니메이션
+            stampImage.gameObject.SetActive(true);
+            StartCoroutine(StampAnimation());
+    
+            // 도장 사운드 재생
+            PlayStampSound();
+    
+            // 일정 시간 후 숨김
+            Invoke(nameof(HideStampEffect), stampDisplayTime);
+        }
+
+        /// <summary>
+        /// 도장 애니메이션 (스케일 효과)
+        /// </summary>
+        private System.Collections.IEnumerator StampAnimation()
+        {
+            // 크기 1.5배로 시작
+            stampImage.transform.localScale = Vector3.one * 1.5f;
+    
+            float duration = 0.2f;
+            float elapsed = 0f;
+    
+            // 1.5배 → 1.0배로 부드럽게
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float scale = Mathf.Lerp(1.5f, 1.0f, elapsed / duration);
+                stampImage.transform.localScale = Vector3.one * scale;
+                yield return null;
+            }
+    
+            stampImage.transform.localScale = Vector3.one;
+        }
+        
+        /// <summary>
+        /// 도장 효과 숨김
+        /// </summary>
+        private void HideStampEffect()
+        {
+            if (stampImage != null)
+            {
+                stampImage.gameObject.SetActive(false);
+            }
+        }
+        
+        /// <summary>
+        /// 도장 사운드 재생
+        /// </summary>
+        private void PlayStampSound()
+        {
+            if (stampSound == null) return;
+            
+            // AudioManager가 있으면 사용
+            if (Utils.AudioManager.Instance != null)
+            {
+                Utils.AudioManager.Instance.PlaySFX("stamp_approve"); // 또는 "stamp_reject"
+            }
+            else
+            {
+                // AudioManager가 없으면 직접 재생
+                AudioSource.PlayClipAtPoint(stampSound, Camera.main.transform.position, 1f);
+            }
+        }
+        
+        /// <summary>
         /// 서류 처리 결과 표시
         /// </summary>
         private void OnDocumentProcessed(Decision decision, bool isCorrect)
         {
-            // 피드백 표시
-            ShowFeedback(isCorrect);
-            
             // 진행률 업데이트
             UpdateProgress();
-        }
-        
-        /// <summary>
-        /// 피드백 표시
-        /// </summary>
-        private void ShowFeedback(bool isCorrect)
-        {
-            feedbackPanel.SetActive(true);
-            
-            if (isCorrect)
-            {
-                feedbackText.text = "정확한 판단입니다";
-                feedbackText.color = Color.green;
-                feedbackIcon.sprite = correctIcon;
-            }
-            else
-            {
-                feedbackText.text = "잘못된 판단입니다";
-                feedbackText.color = Color.red;
-                feedbackIcon.sprite = incorrectIcon;
-            }
-            
-            // 자동으로 숨김
-            Invoke(nameof(HideFeedback), GameConstants.FEEDBACK_DISPLAY_TIME);
-        }
-        
-        private void HideFeedback()
-        {
-            feedbackPanel.SetActive(false);
         }
         
         /// <summary>

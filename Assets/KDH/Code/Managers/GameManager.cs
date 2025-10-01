@@ -64,9 +64,23 @@ namespace KDH.Code.Managers
             Application.targetFrameRate = GameConstants.TARGET_FPS;
         }
         
+        private void OnDestroy()
+        {
+            // 씬 종료 시 정리
+            if (instance == this)
+            {
+                instance = null;
+            }
+        }
+        
         private void Start()
         {
-            InitializeGame();
+            // 게임 씬에서만 초기화
+            if (Utils.SceneTransitionManager.Instance != null && 
+                Utils.SceneTransitionManager.Instance.IsGameScene())
+            {
+                InitializeGame();
+            }
         }
         
         /// <summary>
@@ -74,8 +88,13 @@ namespace KDH.Code.Managers
         /// </summary>
         private void InitializeGame()
         {
-            currentDay = 1;
-            ChangeState(GameState.MainMenu);
+            // 저장된 게임이 로드되지 않았다면 새 게임 시작
+            if (currentDay <= 0)
+            {
+                currentDay = 1;
+            }
+            
+            ChangeState(GameState.DayStart);
         }
         
         /// <summary>

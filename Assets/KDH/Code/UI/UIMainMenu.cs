@@ -111,9 +111,21 @@ namespace KDH.Code.UI
                 Debug.Log("기존 저장 파일을 덮어쓰시겠습니까?");
             }
             
-            if (GameManager.Instance != null)
+            // 모든 매니저 초기화
+            if (ParameterManager.Instance != null)
+                ParameterManager.Instance.ResetParameters();
+            
+            if (EconomyManager.Instance != null)
+                EconomyManager.Instance.ResetEconomy();
+            
+            // 게임 씬으로 전환
+            if (Utils.SceneTransitionManager.Instance != null)
             {
-                GameManager.Instance.StartNewGame();
+                Utils.SceneTransitionManager.Instance.LoadGameScene();
+            }
+            else
+            {
+                Debug.LogError("SceneTransitionManager not found!");
             }
         }
         
@@ -122,10 +134,20 @@ namespace KDH.Code.UI
         /// </summary>
         private void OnContinueClicked()
         {
-            if (GameManager.Instance != null)
+            // 저장 파일 로드
+            if (SaveManager.Instance != null)
             {
-                GameManager.Instance.LoadGame();
-                GameManager.Instance.ChangeState(GameState.DayStart);
+                SaveManager.Instance.LoadGame();
+            }
+            
+            // 게임 씬으로 전환
+            if (Utils.SceneTransitionManager.Instance != null)
+            {
+                Utils.SceneTransitionManager.Instance.LoadGameScene();
+            }
+            else
+            {
+                Debug.LogError("SceneTransitionManager not found!");
             }
         }
         

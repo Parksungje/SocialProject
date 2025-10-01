@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
   m_Name: rule_day9_vnucit
   m_EditorClassIdentifier: 
-  ruleId: rule_day2_normal
-  ruleName: "\uAE30\uBCF8 \uADDC\uCE59"
-  ruleType: 0
+  ruleId: rule_day9_vnucit
+  ruleName: "\uD2B9\uBCC4 \uB300\uC6B0"
+  ruleType: 2
   applicableFromDay: 9
   applicableToDay: -1
   ruleDescription: "VIT/CIT \uB300\uD559 \uCD9C\uC2E0 \uD2B9\uBCC4 \uB300\uC6B0"

@@ -44,6 +44,14 @@ namespace KDH.Code.Managers
             DontDestroyOnLoad(gameObject);
         }
         
+        private void OnDestroy()
+        {
+            if (instance == this)
+            {
+                instance = null;
+            }
+        }
+        
         /// <summary>
         /// 충성도 조정
         /// </summary>

@@ -24,15 +24,22 @@ namespace KDH.Code.Core
         [SerializeField] private GameObject documentGeneratorPrefab;
         [SerializeField] private GameObject audioManagerPrefab;
         [SerializeField] private GameObject screenManagerPrefab;
+        [SerializeField] private GameObject sceneTransitionManagerPrefab;
         
         [Header("초기화 순서")]
         [SerializeField] private bool initializeOnAwake = true;
         
+        private static bool hasInitialized = false;
+        
         private void Awake()
         {
+            // 한 번만 초기화 (중복 방지)
+            if (hasInitialized) return;
+            
             if (initializeOnAwake)
             {
                 InitializeGame();
+                hasInitialized = true;
             }
         }
         

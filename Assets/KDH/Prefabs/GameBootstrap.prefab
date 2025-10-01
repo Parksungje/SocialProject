@@ -56,4 +56,5 @@ MonoBehaviour:
   documentGeneratorPrefab: {fileID: 7653867985595738891, guid: 5614bfc8aec4fbd46b8471a5381d890d, type: 3}
   audioManagerPrefab: {fileID: 0}
   screenManagerPrefab: {fileID: 7170968710837517712, guid: 8f8694712c2b6514fa49747679d900d7, type: 3}
+  sceneTransitionManagerPrefab: {fileID: 6457761082849721921, guid: 0c5f3fa484e2b754d96e806c9fad759f, type: 3}
   initializeOnAwake: 1

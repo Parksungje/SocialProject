@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e538a548d84b459f1887e176fce72c, type: 3}
   m_Name: email_day16_event_Promotion
   m_EditorClassIdentifier: 
-  emailId: email_day7_guideline
+  emailId: email_day16_event_Promotion
   emailType: 3
   applicableDay: 16
   senderName: "\uC774\uD004\uB9AC\uD2F0 \uCF54\uD37C\uB808\uC774\uC158"
@@ -20,8 +20,9 @@ MonoBehaviour:
   subject: "\uC804\uB2EC\uC0AC\uD56D\uC785\uB2C8\uB2E4."
   body: "\uADF8\uB3D9\uC548 \uBCF4\uBA74\uC11C \uC800\uD76C\uB294 \uB2F9\uC2E0\uC758
     \uC5C5\uBB34\uB2A5\uB825\uC744 \uB192\uC774 \uC0AC, \n\uB2F9\uC2E0\uC5D0\uAC8C
-    \uC2B9\uC9C4\uC758 \uAE30\uD68C\uB97C \uB4DC\uB9AC\uB3C4\uB85D \uD558\uACA0\uC2B5\uB2C8\uB2E4.\n\n\uC5C5\uBB34\uAC00
-    \uB05D\uB098\uACE0 \uD55C\uBC88 \uB9CC\uB098\uBCF4\uC558\uC73C\uBA74 \uC88B\uACA0\uC2B5\uB2C8\uB2E4\n\n<\uC704\uCE58>\n\n\uC774\uD004\uB9AC\uD2F0
+    \uC2B9\uC9C4\uC758 \uAE30\uD68C\uB97C \uB4DC\uB9AC\uB3C4\uB85D \uD558\uACA0\uC2B5\uB2C8\uB2E4.
+    \\n\n\\n\n\uC5C5\uBB34\uAC00 \uB05D\uB098\uACE0 \uD55C\uBC88 \uB9CC\uB098\uBCF4\uC558\uC73C\uBA74
+    \uC88B\uACA0\uC2B5\uB2C8\uB2E4.\\n\n\\n\n[<\uC704\uCE58>]\\n\n\\n\n\uC774\uD004\uB9AC\uD2F0
     \uCF54\uD37C\uB808\uC774\uC158 7\uCE35 \uC0AC\uC7A5\uC2E4"
   hasAttachment: 0
   attachmentName: 

@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7653867985595738891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8276568131651110793}
+  - component: {fileID: 9003608439319830986}
+  m_Layer: 0
+  m_Name: DocumentGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8276568131651110793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653867985595738891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9003608439319830986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653867985595738891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0aab9e5dd443f99b7f66d6ed889007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  universities:
+  - {fileID: 11400000, guid: c8d4ece515d787e4893b7aa13bb5809e, type: 2}
+  - {fileID: 11400000, guid: 6c3178cd08e82ec46866ce619c18489f, type: 2}
+  - {fileID: 11400000, guid: 34ae63daddb75f4449472b631ada5247, type: 2}
+  - {fileID: 11400000, guid: d16441a68c628da40b127996e7cbbc39, type: 2}
+  regions:
+  - {fileID: 11400000, guid: 8add4c770dd571844b01f8dab31c4148, type: 2}
+  - {fileID: 11400000, guid: dd0d563532afea44abe65581e6005139, type: 2}
+  - {fileID: 11400000, guid: 3d2b94954985d39458686aa78deb44ef, type: 2}
+  - {fileID: 11400000, guid: f71fb1a29f892e44d82b5e8468f81281, type: 2}
+  maleApplicantPhotos:
+  - {fileID: 21300000, guid: 3463b3b57aea95f4f847a7d70cf50f0a, type: 3}
+  femaleApplicantPhotos:
+  - {fileID: 21300000, guid: 8963331217f7620459e685856db01a5c, type: 3}
+  lastNames:
+  - "\uAE40"
+  - "\uC774"
+  - "\uBC15"
+  - "\uCD5C"
+  - "\uC815"
+  - "\uAC15"
+  - "\uC870"
+  - "\uC724"
+  - "\uC7A5"
+  - "\uC784"
+  - "\uD55C"
+  - "\uC624"
+  - "\uC11C"
+  - "\uC2E0"
+  - "\uAD8C"
+  - "\uD669"
+  firstNamesMale:
+  - "\uBBFC\uC900"
+  - "\uC11C\uC900"
+  - "\uC608\uC900"
+  - "\uB3C4\uC724"
+  - "\uC2DC\uC6B0"
+  - "\uC8FC\uC6D0"
+  - "\uD558\uC900"
+  - "\uC9C0\uD638"
+  - "\uC900\uC11C"
+  - "\uAC74\uC6B0"
+  firstNamesFemale:
+  - "\uC11C\uC5F0"
+  - "\uBBFC\uC11C"
+  - "\uC9C0\uC6B0"
+  - "\uC11C\uD604"
+  - "\uC9C0\uBBFC"
+  - "\uC218\uC544"
+  - "\uD558\uC740"
+  - "\uC608\uC740"
+  - "\uC724\uC11C"
+  - "\uCC44\uC6D0"
+  majors:
+  - "\uCEF4\uD4E8\uD130\uACF5\uD559"
+  - "\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559"
+  - "\uC815\uBCF4\uD1B5\uC2E0\uACF5\uD559"
+  - "\uC804\uC790\uACF5\uD559"
+  - "\uBC18\uB3C4\uCCB4\uACF5\uD559"
+  - "\uC778\uACF5\uC9C0\uB2A5\uD559"
+  - "\uB370\uC774\uD130\uC0AC\uC774\uC5B8\uC2A4"
+  - "\uC0AC\uC774\uBC84\uBCF4\uC548\uD559"
+  - "\uAE30\uACC4\uACF5\uD559"
+  - "\uC0B0\uC5C5\uACF5\uD559"
+  - "\uD654\uD559\uACF5\uD559"
+  - "\uC2E0\uC18C\uC7AC\uACF5\uD559"
+  - "\uC0DD\uBA85\uACF5\uD559"
+  - "\uD658\uACBD\uACF5\uD559"
+  - "\uAC74\uCD95\uACF5\uD559"
+  - "\uD56D\uACF5\uC6B0\uC8FC\uACF5\uD559"
+  - "\uC218\uD559"
+  - "\uD1B5\uACC4\uD559"
+  - "\uBB3C\uB9AC\uD559"
+  - "\uD654\uD559"
+  - "\uC0DD\uBA85\uACFC\uD559"
+  - "\uACBD\uC601\uD559"
+  - "\uACBD\uC601\uC815\uBCF4\uD559"
+  - "\uACBD\uC81C\uD559"
+  - "\uD68C\uACC4\uD559"
+  - "\uC7AC\uBB34\uD559"
+  - "\uB9C8\uCF00\uD305\uD559"
+  - "\uBC95\uD559"
+  - "\uD589\uC815\uD559"
+  - "\uC2EC\uB9AC\uD559"
+  - "\uC0AC\uD68C\uD559"
+  - "\uC815\uCE58\uC678\uAD50\uD559"
+  - "\uB514\uC790\uC778\uD559"
+  - "\uBBF8\uB514\uC5B4\uD559"
+  - "\uC5B8\uC5B4\uD559"
+  - "\uAD50\uC721\uD559"
+  - "\uAC04\uD638\uD559"
+  companyNames:
+  - "\uD14C\uD06C\uB178\uBCA0\uC774\uC158"
+  - "\uD4E8\uCC98\uC2DC\uC2A4\uD15C\uC988"
+  - "\uAE00\uB85C\uBC8C\uC194\uB8E8\uC158"
+  - "\uB514\uC9C0\uD138\uC6E8\uC774\uBE0C"
+  - "\uC2A4\uB9C8\uD2B8\uC778\uB354\uC2A4\uD2B8\uB9AC"
+  - "\uC774\uB178\uBCA0\uC774\uC158\uB7A9"
+  - "\uB125\uC2A4\uD2B8\uC81C\uB108\uB808\uC774\uC158"
+  positions:
+  - "\uC0AC\uC6D0"
+  - "\uC8FC\uC784"
+  - "\uB300\uB9AC"
+  - "\uACFC\uC7A5"
+  - "\uCC28\uC7A5"

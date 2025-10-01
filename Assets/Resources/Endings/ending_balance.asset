@@ -36,5 +36,5 @@ MonoBehaviour:
     \uC54A\uC9C0\uB9CC, \uC548\uC815\uC801\uC785\uB2C8\uB2E4."
   coreMessage: "\uC644\uBCBD\uD55C \uC120\uD0DD\uC740 \uC5C6\uB2E4."
   showStatistics: 1
-  endingImage: {fileID: 21300000, guid: 1267df07c6fcb6940a43e4017c5b00f1, type: 3}
+  endingImage: {fileID: 21300000, guid: 707cfaba553979b44b5c1dc3fd078d78, type: 3}
   themeColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}

@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: rule_day1_Tutorial
   m_EditorClassIdentifier: 
   ruleId: rule_day1_Tutorial
-  ruleName: "\uC804\uACF5 \uBD88\uC77C\uCE58 \uD0C8\uB77D"
+  ruleName: "\uD29C\uD1A0\uB9AC\uC5BC"
   ruleType: 0
   applicableFromDay: 1
   applicableToDay: 1
-  ruleDescription: "\uC9C0\uC6D0 \uC9C1\uBB34\uC640 \uC804\uACF5\uC774 \uC77C\uCE58\uD558\uC9C0
-    \uC54A\uB294 \uACBD\uC6B0 \uD0C8\uB77D \uCC98\uB9AC"
+  ruleDescription: "\uC9C0\uC6D0 \uC9C1\uBB34\uC640 \uC804\uACF5(\uC778\uBB38/\uC608\uC220)\uC774
+    \uC77C\uCE58\uD558\uC9C0 \uC54A\uB294 \uACBD\uC6B0 \uD0C8\uB77D \uCC98\uB9AC"
   isEthical: 1
   conditions:
   - field: 3
-    operatorType: 1
-    value: 
+    operatorType: 6
+    value: "\uBC95"
+  - field: 3
+    operatorType: 6
+    value: "\uC815\uCE58"
+  - field: 3
+    operatorType: 6
+    value: "\uB514\uC790\uC778"
   enforcedDecision: 2
-  priorityLevel: 2
+  priorityLevel: 1
   loyaltyImpactOnFollow: 2
   conscienceImpactOnFollow: 0
   loyaltyImpactOnViolate: -1

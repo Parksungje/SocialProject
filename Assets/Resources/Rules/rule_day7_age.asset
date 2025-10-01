@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
-  m_Name: rule_day4_criminal
+  m_Name: rule_day7_age
   m_EditorClassIdentifier: 
-  ruleId: rule_day4_criminal
-  ruleName: "\uBC94\uC8C4\uC790 \uAE08\uC9C0"
-  ruleType: 3
-  applicableFromDay: 4
-  applicableToDay: 13
-  ruleDescription: "\uBC94\uC8C4\uC790\uC758 \uACBD\uC6B0 \uD0C8\uB77D"
-  isEthical: 1
+  ruleId: rule_day7_corvus
+  ruleName: "\uB098\uC774\uC81C\uD55C"
+  ruleType: 1
+  applicableFromDay: 7
+  applicableToDay: -1
+  ruleDescription: "40\uC138 \uC774\uC0C1 \uC9C0\uC6D0\uC790 \uD0C8\uB77D"
+  isEthical: 0
   conditions:
-  - field: 7
-    operatorType: 6
-    value: 
+  - field: 6
+    operatorType: 4
+    value: 40
   enforcedDecision: 2
-  priorityLevel: 4
+  priorityLevel: 10
   loyaltyImpactOnFollow: 3
-  conscienceImpactOnFollow: 0
-  loyaltyImpactOnViolate: -2
-  conscienceImpactOnViolate: 0
+  conscienceImpactOnFollow: -2
+  loyaltyImpactOnViolate: -5
+  conscienceImpactOnViolate: 3

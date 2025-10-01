@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208759c881bd4672b604ebc09d367248, type: 3}
   m_Name: rule_day12_corvus2
   m_EditorClassIdentifier: 
-  ruleId: rule_day2_normal
-  ruleName: "\uAE30\uBCF8 \uADDC\uCE59"
-  ruleType: 0
+  ruleId: rule_day12_corvus2
+  ruleName: "\uCF54\uB974\uBD80\uC2A4 \uCC28\uBCC4"
+  ruleType: 3
   applicableFromDay: 12
   applicableToDay: -1
   ruleDescription: "\uC774\uC720\uBD88\uBB38 \uCF54\uB974\uBD80\uC2A4 \uCD9C\uC2E0\uC774\uBA74
@@ -23,7 +23,7 @@ MonoBehaviour:
   conditions:
   - field: 0
     operatorType: 0
-    value: '"Corvus"'
+    value: Corvus
   - field: 1
     operatorType: 4
     value: 1

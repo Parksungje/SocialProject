@@ -13,21 +13,17 @@ MonoBehaviour:
   m_Name: rule_day7_corvus
   m_EditorClassIdentifier: 
   ruleId: rule_day7_corvus
-  ruleName: "\uCF54\uB974\uBD80\uC2A4 \uCD9C\uC2E0 \uBCF4\uB958"
+  ruleName: "\uCF54\uB974\uBD80\uC2A4 \uBCF4\uB958"
   ruleType: 1
   applicableFromDay: 7
   applicableToDay: -1
   ruleDescription: "\uCF54\uB974\uBD80\uC2A4 \uC9C0\uC5ED \uCD9C\uC2E0 \uC9C0\uC6D0\uC790\uB294
-    \uD2B9\uBCC4\uD55C \uC0AC\uC720\uAC00 \uC5C6\uB294 \uD55C \uBCF4\uB958\n40\uC138
-    \uC774\uC0C1 \uC9C0\uC6D0\uC790 \uD0C8\uB77D"
+    \uD2B9\uBCC4\uD55C \uC0AC\uC720\uAC00 \uC5C6\uB294 \uD55C \uBCF4\uB958"
   isEthical: 0
   conditions:
   - field: 0
     operatorType: 0
-    value: '"Corvus"'
-  - field: 6
-    operatorType: 4
-    value: 40
+    value: Corvus
   enforcedDecision: 2
   priorityLevel: 10
   loyaltyImpactOnFollow: 3

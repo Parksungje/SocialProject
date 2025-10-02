@@ -2,6 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace KDH.Code.UI
 {
@@ -41,9 +43,168 @@ namespace KDH.Code.UI
         [Header("하이라이트 도구")]
         [SerializeField] private Toggle highlightToggle;
         [SerializeField] private Color highlightColor = Color.yellow;
+        [SerializeField] private Color normalColor = Color.black;
         
         private ApplicantData currentApplicant;
         private bool isHighlightMode;
+        private List<TextMeshProUGUI> allTexts = new List<TextMeshProUGUI>();
+        private Dictionary<TextMeshProUGUI, Color> originalColors = new Dictionary<TextMeshProUGUI, Color>();
+        
+        private void Start()
+        {
+            Debug.Log("[UIDocumentView] Initializing...");
+            
+            // ✅ 모든 텍스트 수집
+            CollectAllTexts();
+            
+            // ✅ 클릭 이벤트 자동 등록
+            SetupClickEvents();
+            
+            // ✅ Toggle 이벤트 등록
+            if (highlightToggle != null)
+            {
+                highlightToggle.onValueChanged.AddListener(OnHighlightToggleChanged);
+                Debug.Log("[UIDocumentView] Highlight toggle registered");
+            }
+            else
+            {
+                Debug.LogWarning("[UIDocumentView] Highlight toggle is NULL!");
+            }
+        }
+        
+        /// <summary>
+        /// 모든 텍스트 요소 수집
+        /// </summary>
+        private void CollectAllTexts()
+        {
+            allTexts.Clear();
+            originalColors.Clear();
+            
+            // 기본 정보
+            AddText(nameText);
+            AddText(ageText);
+            AddText(genderText);
+            AddText(addressText);
+            AddText(phoneText);
+            
+            // 학력 정보
+            AddText(universityText);
+            AddText(majorText);
+            AddText(graduationYearText);
+            AddText(gpaText);
+            
+            // 경력 정보
+            AddText(companyText);
+            AddText(positionText);
+            AddText(experienceText);
+            AddText(employmentPeriodText);
+            
+            // 추가 서류
+            AddText(criminalRecordText);
+            AddText(recommendationText);
+            AddText(certificationText);
+            
+            Debug.Log($"[UIDocumentView] Collected {allTexts.Count} text elements");
+        }
+        
+        private void AddText(TextMeshProUGUI text)
+        {
+            if (text != null)
+            {
+                allTexts.Add(text);
+                originalColors[text] = text.color;
+            }
+        }
+        
+        /// <summary>
+        /// 클릭 이벤트 자동 설정
+        /// </summary>
+        private void SetupClickEvents()
+        {
+            foreach (var text in allTexts)
+            {
+                // ✅ EventTrigger 추가
+                EventTrigger trigger = text.gameObject.GetComponent<EventTrigger>();
+                if (trigger == null)
+                {
+                    trigger = text.gameObject.AddComponent<EventTrigger>();
+                }
+                
+                // ✅ 클릭 이벤트 등록
+                EventTrigger.Entry entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerClick;
+                entry.callback.AddListener((data) => { OnTextClicked(text); });
+                trigger.triggers.Add(entry);
+            }
+            
+            Debug.Log($"[UIDocumentView] Click events setup for {allTexts.Count} texts");
+        }
+        
+        /// <summary>
+        /// 하이라이트 모드 토글 변경
+        /// </summary>
+        private void OnHighlightToggleChanged(bool isOn)
+        {
+            isHighlightMode = isOn;
+            Debug.Log($"[UIDocumentView] Highlight mode: {(isOn ? "ON" : "OFF")}");
+            
+            // ✅ 모드 꺼지면 모든 하이라이트 제거
+            if (!isOn)
+            {
+                ClearAllHighlights();
+            }
+        }
+        
+        /// <summary>
+        /// 텍스트 클릭 처리
+        /// </summary>
+        private void OnTextClicked(TextMeshProUGUI textElement)
+        {
+            if (!isHighlightMode)
+                return;
+            
+            if (textElement == null)
+                return;
+            
+            Debug.Log($"[UIDocumentView] Text clicked: {textElement.text}");
+            
+            // ✅ 하이라이트 토글
+            if (textElement.color == highlightColor)
+            {
+                // 원래 색으로 복구
+                if (originalColors.TryGetValue(textElement, out Color originalColor))
+                {
+                    textElement.color = originalColor;
+                }
+                else
+                {
+                    textElement.color = normalColor;
+                }
+                Debug.Log($"[UIDocumentView] Highlight removed");
+            }
+            else
+            {
+                // 하이라이트 적용
+                textElement.color = highlightColor;
+                Debug.Log($"[UIDocumentView] Highlight applied");
+            }
+        }
+        
+        /// <summary>
+        /// 모든 하이라이트 제거
+        /// </summary>
+        private void ClearAllHighlights()
+        {
+            Debug.Log("[UIDocumentView] Clearing all highlights...");
+            
+            foreach (var text in allTexts)
+            {
+                if (text != null && originalColors.TryGetValue(text, out Color originalColor))
+                {
+                    text.color = originalColor;
+                }
+            }
+        }
         
         /// <summary>
         /// 서류 표시
@@ -51,6 +212,9 @@ namespace KDH.Code.UI
         public void DisplayDocument(ApplicantData applicant)
         {
             currentApplicant = applicant;
+            
+            // ✅ 이전 하이라이트 제거
+            ClearAllHighlights();
             
             // 기본 정보 표시
             DisplayBasicInfo(applicant);
@@ -65,9 +229,8 @@ namespace KDH.Code.UI
             DisplayAdditionalDocuments(applicant);
         }
         
-        /// <summary>
-        /// 기본 정보 표시
-        /// </summary>
+        // ... (나머지 Display 메서드들은 그대로)
+        
         private void DisplayBasicInfo(ApplicantData applicant)
         {
             if (nameText != null)
@@ -91,9 +254,6 @@ namespace KDH.Code.UI
             }
         }
         
-        /// <summary>
-        /// 학력 정보 표시
-        /// </summary>
         private void DisplayEducationInfo(ApplicantData applicant)
         {
             if (universityText != null)
@@ -109,9 +269,6 @@ namespace KDH.Code.UI
                 gpaText.text = $"{applicant.gpa:F2} / 4.5";
         }
         
-        /// <summary>
-        /// 경력 정보 표시
-        /// </summary>
         private void DisplayCareerInfo(ApplicantData applicant)
         {
             if (applicant.experienceMonths > 0)
@@ -130,7 +287,6 @@ namespace KDH.Code.UI
             }
             else
             {
-                // 신입인 경우
                 if (companyText != null)
                     companyText.text = "없음";
                 
@@ -145,17 +301,12 @@ namespace KDH.Code.UI
             }
         }
         
-        /// <summary>
-        /// 추가 서류 표시 (조건부)
-        /// </summary>
         private void DisplayAdditionalDocuments(ApplicantData applicant)
         {
-            // 1. 신원조회서 (Background Check)
             if (backgroundCheckPanel != null)
             {
                 if (applicant.hasBackgroundCheck)
                 {
-                    // 신원조회서가 있으면 표시
                     backgroundCheckPanel.SetActive(true);
                     
                     if (criminalRecordText != null)
@@ -174,17 +325,14 @@ namespace KDH.Code.UI
                 }
                 else
                 {
-                    // 신원조회서가 없으면 숨김
                     backgroundCheckPanel.SetActive(false);
                 }
             }
             
-            // 2. 추천서 (Recommendation Letter)
             if (recommendationPanel != null)
             {
                 if (applicant.hasRecommendationLetter)
                 {
-                    // 추천서가 있으면 표시
                     recommendationPanel.SetActive(true);
                     
                     if (recommendationText != null)
@@ -194,17 +342,14 @@ namespace KDH.Code.UI
                 }
                 else
                 {
-                    // 추천서가 없으면 숨김
                     recommendationPanel.SetActive(false);
                 }
             }
             
-            // 3. 자격증 (Certification)
             if (certificationPanel != null)
             {
                 if (applicant.hasCertification)
                 {
-                    // 자격증이 있으면 표시
                     certificationPanel.SetActive(true);
                     
                     if (certificationText != null)
@@ -214,43 +359,8 @@ namespace KDH.Code.UI
                 }
                 else
                 {
-                    // 자격증이 없으면 숨김
                     certificationPanel.SetActive(false);
                 }
-            }
-        }
-        
-        /// <summary>
-        /// 하이라이트 모드 토글
-        /// </summary>
-        public void ToggleHighlightMode()
-        {
-            if (highlightToggle != null)
-            {
-                isHighlightMode = highlightToggle.isOn;
-                Debug.Log($"Highlight mode: {isHighlightMode}");
-            }
-        }
-        
-        /// <summary>
-        /// 텍스트 요소 클릭 처리 (하이라이트용)
-        /// </summary>
-        public void OnTextClicked(TextMeshProUGUI textElement)
-        {
-            if (!isHighlightMode)
-                return;
-            
-            if (textElement == null)
-                return;
-            
-            // 하이라이트 토글
-            if (textElement.color == highlightColor)
-            {
-                textElement.color = Color.black;
-            }
-            else
-            {
-                textElement.color = highlightColor;
             }
         }
     }

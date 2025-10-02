@@ -63,15 +63,15 @@ namespace KDH.Code.UI
         /// </summary>
         private void OnGameStateChanged(GameState newState)
         {
-            if (newState == GameState.DailyReport)
+            bool shouldBeActive = newState == GameState.DailyReport;
+            gameObject.SetActive(shouldBeActive);
+    
+            if (shouldBeActive)
             {
-                gameObject.SetActive(true);
                 DisplayReport();
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
+    
+            Debug.Log($"[UIDailyReportPanel] Active: {shouldBeActive}");
         }
         
         /// <summary>

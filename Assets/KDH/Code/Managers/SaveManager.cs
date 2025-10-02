@@ -133,7 +133,7 @@ namespace KDH.Code.Managers
                 string json = File.ReadAllText(SavePath);
                 GameSaveData saveData = JsonUtility.FromJson<GameSaveData>(json);
                 
-                return $"Day {saveData.currentDay}\n저장 시간: {saveData.saveTime}";
+                return $"Day {saveData.currentDay} Save Time: {saveData.saveTime}";
             }
             catch
             {

@@ -45,25 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEmails:
-  - {fileID: 11400000, guid: 0b9c1c6a3d19e3e4583f5b1be896b511, type: 2}
-  - {fileID: 11400000, guid: 4e4cff46d0ca6694d9344002cecbb87a, type: 2}
-  - {fileID: 11400000, guid: 098f8dd2621871b4eb901c74e63a3fa1, type: 2}
-  - {fileID: 11400000, guid: 6f5b53f136b2af34b9941cf70635b383, type: 2}
-  - {fileID: 11400000, guid: 5c4ff80e3f942644daf18437fdbe7186, type: 2}
-  - {fileID: 11400000, guid: e5a2be9fb1f956f41819717eb5e1e777, type: 2}
-  - {fileID: 11400000, guid: 378ca9c6a25ff9641af604badc03c84c, type: 2}
-  - {fileID: 11400000, guid: d8032f33986e9ff41b813d4a2faf402f, type: 2}
-  - {fileID: 11400000, guid: b358785242f6f8c45b26af30db23352e, type: 2}
-  - {fileID: 11400000, guid: b874ee805d480ff4fa95552f043787d8, type: 2}
-  - {fileID: 11400000, guid: 1ced6be55980c7948bb360646ccf3626, type: 2}
   - {fileID: 11400000, guid: 20dcc9917b31c234cbfa8a98b98e1ac2, type: 2}
+  - {fileID: 11400000, guid: f8c5f3154af06d844bff06bf72d9fde6, type: 2}
   - {fileID: 11400000, guid: c7a75489c04277b4f951cb0f40852ba0, type: 2}
+  - {fileID: 11400000, guid: e79d7aba28df9ac43a45979551f667fe, type: 2}
   - {fileID: 11400000, guid: 33f96b93c58ef3e45af274ad4ddbeaf6, type: 2}
   - {fileID: 11400000, guid: dd729db0ecf4d0f489d1a72007dcd074, type: 2}
-  - {fileID: 11400000, guid: cca620c8beee74449a5c4e9f9919b78f, type: 2}
-  - {fileID: 11400000, guid: f8c5f3154af06d844bff06bf72d9fde6, type: 2}
-  - {fileID: 11400000, guid: e79d7aba28df9ac43a45979551f667fe, type: 2}
   - {fileID: 11400000, guid: 3c998f3d880da484cbf2be3c2de5b6d2, type: 2}
+  - {fileID: 11400000, guid: cca620c8beee74449a5c4e9f9919b78f, type: 2}
+  - {fileID: 11400000, guid: 9b44f9aef6e94bb48b75b1530370a9de, type: 2}
+  - {fileID: 11400000, guid: b874ee805d480ff4fa95552f043787d8, type: 2}
+  - {fileID: 11400000, guid: 1ced6be55980c7948bb360646ccf3626, type: 2}
+  - {fileID: 11400000, guid: d8032f33986e9ff41b813d4a2faf402f, type: 2}
+  - {fileID: 11400000, guid: b358785242f6f8c45b26af30db23352e, type: 2}
   todayEmails: []
   mandatoryEmail:
     emailData: {fileID: 0}

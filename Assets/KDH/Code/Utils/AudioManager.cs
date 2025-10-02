@@ -35,6 +35,8 @@ namespace KDH.Code.Utils
         
         private void Awake()
         {
+            Debug.Log("[AudioManager] ===== AWAKE =====");
+            
             if (instance != null && instance != this)
             {
                 Destroy(gameObject);
@@ -46,6 +48,8 @@ namespace KDH.Code.Utils
             
             InitializeAudioSources();
             BuildSFXLibrary();
+            
+            Debug.Log("[AudioManager] Initialized successfully");
         }
         
         /// <summary>
@@ -53,20 +57,29 @@ namespace KDH.Code.Utils
         /// </summary>
         private void InitializeAudioSources()
         {
+            Debug.Log("[AudioManager] Initializing audio sources...");
+            
+            // BGM Source
             if (bgmSource == null)
             {
                 bgmSource = gameObject.AddComponent<AudioSource>();
                 bgmSource.loop = true;
+                bgmSource.playOnAwake = false;
+                Debug.Log("[AudioManager] BGM AudioSource created");
             }
+            bgmSource.volume = bgmVolume;
             
+            // SFX Source
             if (sfxSource == null)
             {
                 sfxSource = gameObject.AddComponent<AudioSource>();
                 sfxSource.loop = false;
+                sfxSource.playOnAwake = false;
+                Debug.Log("[AudioManager] SFX AudioSource created");
             }
-            
-            bgmSource.volume = bgmVolume;
             sfxSource.volume = sfxVolume;
+            
+            Debug.Log($"[AudioManager] BGM Volume: {bgmVolume}, SFX Volume: {sfxVolume}");
         }
         
         /// <summary>
@@ -74,6 +87,8 @@ namespace KDH.Code.Utils
         /// </summary>
         private void BuildSFXLibrary()
         {
+            Debug.Log("[AudioManager] Building SFX library...");
+            
             sfxLibrary = new Dictionary<string, AudioClip>
             {
                 { "stamp_approve", stampApproveSound },
@@ -82,6 +97,15 @@ namespace KDH.Code.Utils
                 { "keyboard", keyboardSound },
                 { "notification", notificationSound }
             };
+            
+            // 디버그: 등록된 사운드 출력
+            foreach (var kvp in sfxLibrary)
+            {
+                if (kvp.Value != null)
+                    Debug.Log($"[AudioManager] SFX registered: {kvp.Key} → {kvp.Value.name}");
+                else
+                    Debug.LogWarning($"[AudioManager] SFX missing: {kvp.Key} → NULL");
+            }
         }
         
         /// <summary>
@@ -89,6 +113,8 @@ namespace KDH.Code.Utils
         /// </summary>
         public void PlayBGM(string bgmName)
         {
+            Debug.Log($"[AudioManager] PlayBGM called: {bgmName}");
+            
             AudioClip clip = null;
             
             switch (bgmName.ToLower())
@@ -108,6 +134,11 @@ namespace KDH.Code.Utils
             {
                 bgmSource.clip = clip;
                 bgmSource.Play();
+                Debug.Log($"[AudioManager] BGM started: {clip.name}");
+            }
+            else if (clip == null)
+            {
+                Debug.LogWarning($"[AudioManager] BGM clip not found: {bgmName}");
             }
         }
         
@@ -116,32 +147,8 @@ namespace KDH.Code.Utils
         /// </summary>
         public void StopBGM()
         {
+            Debug.Log("[AudioManager] Stopping BGM");
             bgmSource.Stop();
-        }
-        
-        /// <summary>
-        /// BGM 페이드아웃
-        /// </summary>
-        public void FadeOutBGM(float duration = 1f)
-        {
-            StartCoroutine(FadeOutCoroutine(duration));
-        }
-        
-        private System.Collections.IEnumerator FadeOutCoroutine(float duration)
-        {
-            float startVolume = bgmSource.volume;
-            float elapsed = 0f;
-            
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                bgmSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
-                yield return null;
-            }
-            
-            bgmSource.volume = 0f;
-            bgmSource.Stop();
-            bgmSource.volume = startVolume;
         }
         
         /// <summary>
@@ -149,13 +156,23 @@ namespace KDH.Code.Utils
         /// </summary>
         public void PlaySFX(string sfxName)
         {
+            Debug.Log($"[AudioManager] PlaySFX called: {sfxName}");
+            
             if (sfxLibrary.TryGetValue(sfxName, out AudioClip clip))
             {
-                sfxSource.PlayOneShot(clip);
+                if (clip != null)
+                {
+                    sfxSource.PlayOneShot(clip);
+                    Debug.Log($"[AudioManager] SFX played: {sfxName}");
+                }
+                else
+                {
+                    Debug.LogError($"[AudioManager] SFX clip is NULL: {sfxName}");
+                }
             }
             else
             {
-                Debug.LogWarning($"SFX not found: {sfxName}");
+                Debug.LogWarning($"[AudioManager] SFX not found in library: {sfxName}");
             }
         }
         
@@ -165,6 +182,7 @@ namespace KDH.Code.Utils
         public void PlayStampSound(Core.Decision decision)
         {
             string sfxName = decision == Core.Decision.Approve ? "stamp_approve" : "stamp_reject";
+            Debug.Log($"[AudioManager] PlayStampSound: {decision} → {sfxName}");
             PlaySFX(sfxName);
         }
         
@@ -175,6 +193,7 @@ namespace KDH.Code.Utils
         {
             bgmVolume = Mathf.Clamp01(volume);
             bgmSource.volume = bgmVolume;
+            Debug.Log($"[AudioManager] BGM volume set to: {bgmVolume}");
         }
         
         /// <summary>
@@ -184,6 +203,7 @@ namespace KDH.Code.Utils
         {
             sfxVolume = Mathf.Clamp01(volume);
             sfxSource.volume = sfxVolume;
+            Debug.Log($"[AudioManager] SFX volume set to: {sfxVolume}");
         }
     }
 }

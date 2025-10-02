@@ -86,14 +86,18 @@ namespace KDH.Code.UI
         /// </summary>
         private void OnGameStateChanged(GameState newState)
         {
-            bool isActive = newState == GameState.InnerThoughts || newState == GameState.FamilyTalk;
-            gameObject.SetActive(isActive);
-            
-            if (!isActive)
+            bool shouldBeActive = newState == GameState.InnerThoughts || 
+                                  newState == GameState.FamilyTalk;
+    
+            gameObject.SetActive(shouldBeActive);
+    
+            if (!shouldBeActive)
             {
                 StopAllCoroutines();
                 isPlaying = false;
             }
+    
+            Debug.Log($"[UIFamilyPanel] State: {newState}, Active: {shouldBeActive}");
         }
         
         /// <summary>

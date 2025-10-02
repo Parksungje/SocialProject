@@ -66,7 +66,6 @@ namespace KDH.Code.Managers
         
         private void OnDestroy()
         {
-            // 씬 종료 시 정리
             if (instance == this)
             {
                 instance = null;
@@ -88,6 +87,8 @@ namespace KDH.Code.Managers
         /// </summary>
         private void InitializeGame()
         {
+            Debug.Log("[GameManager] ===== InitializeGame =====");
+            
             // 저장된 게임이 로드되지 않았다면 새 게임 시작
             if (currentDay <= 0)
             {
@@ -105,6 +106,9 @@ namespace KDH.Code.Managers
             if (currentState == newState)
                 return;
             
+            Debug.Log($"[GameManager] ===== State Change =====");
+            Debug.Log($"[GameManager] {currentState} → {newState}");
+            
             currentState = newState;
             OnStateChanged?.Invoke(newState);
             
@@ -116,6 +120,8 @@ namespace KDH.Code.Managers
         /// </summary>
         private void HandleStateTransition(GameState state)
         {
+            Debug.Log($"[GameManager] Handling transition: {state}");
+            
             switch (state)
             {
                 case GameState.DayStart:
@@ -183,9 +189,26 @@ namespace KDH.Code.Managers
     
             OnDayChanged?.Invoke(currentDay);
     
-            Debug.Log($"Day {currentDay} started. Target: {GetTodayTarget()} documents");
+            Debug.Log($"========================================");
+            Debug.Log($"[GameManager] Day {currentDay} started");
+            Debug.Log($"[GameManager] Target: {GetTodayTarget()} documents");
+            Debug.Log($"========================================");
     
-            // ✅ 즉시 전환
+            // ✅ 다른 Manager들이 초기화될 때까지 약간 대기
+            StartCoroutine(DelayedEmailBriefing());
+        }
+
+        /// <summary>
+        /// EmailBriefing으로 전환 (지연)
+        /// </summary>
+        private System.Collections.IEnumerator DelayedEmailBriefing()
+        {
+            Debug.Log("[GameManager] Waiting for other managers to initialize...");
+    
+            // 1프레임 대기
+            yield return null;
+    
+            Debug.Log("[GameManager] All managers ready. Moving to EmailBriefing...");
             ChangeState(GameState.EmailBriefing);
         }
         
@@ -200,9 +223,13 @@ namespace KDH.Code.Managers
             if (wasCorrect)
                 correctDecisionsToday++;
             
+            Debug.Log($"[GameManager] Decision recorded: {(wasCorrect ? "Correct" : "Wrong")}");
+            Debug.Log($"[GameManager] Progress: {documentsProcessedToday}/{GetTodayTarget()}");
+            
             // 목표량 달성 확인
             if (documentsProcessedToday >= GetTodayTarget())
             {
+                Debug.Log("[GameManager] Target reached! Moving to DailyReport");
                 ChangeState(GameState.DailyReport);
             }
         }
@@ -232,6 +259,8 @@ namespace KDH.Code.Managers
         /// </summary>
         private void GenerateDailyReport()
         {
+            Debug.Log("[GameManager] Generating daily report...");
+            
             int dailySalary = CalculateDailySalary();
             
             // EconomyManager에 전달
@@ -268,6 +297,8 @@ namespace KDH.Code.Managers
             // 최소 급여 보장
             salary = Mathf.Max(salary, 50000);
             
+            Debug.Log($"[GameManager] Daily salary calculated: {salary:N0}원");
+            
             return salary;
         }
         
@@ -276,6 +307,8 @@ namespace KDH.Code.Managers
         /// </summary>
         private void EndDay()
         {
+            Debug.Log("[GameManager] Day end");
+            
             OnDayCompleted?.Invoke();
             
             // 저장
@@ -290,6 +323,7 @@ namespace KDH.Code.Managers
             else
             {
                 // 최종일 완료
+                Debug.Log("[GameManager] All days completed! Moving to FinalChoice");
                 ChangeState(GameState.FinalChoice);
             }
         }
@@ -320,10 +354,14 @@ namespace KDH.Code.Managers
         /// </summary>
         private void DetermineEnding()
         {
+            Debug.Log("[GameManager] Determining ending...");
+            
             if (ParameterManager.Instance == null)
                 return;
             
             EndingType ending = ParameterManager.Instance.DetermineEnding();
+            
+            Debug.Log($"[GameManager] Ending determined: {ending}");
             
             // EndingManager에 전달
             if (EndingManager.Instance != null)
@@ -337,6 +375,8 @@ namespace KDH.Code.Managers
         /// </summary>
         public void StartNewGame()
         {
+            Debug.Log("[GameManager] ===== Starting New Game =====");
+            
             currentDay = 1;
             
             // 모든 매니저 초기화
@@ -351,6 +391,7 @@ namespace KDH.Code.Managers
         /// </summary>
         public void LoadGame()
         {
+            Debug.Log("[GameManager] Loading game...");
             SaveManager.Instance?.LoadGame();
         }
         
@@ -360,6 +401,7 @@ namespace KDH.Code.Managers
         public void SetCurrentDay(int day)
         {
             currentDay = Mathf.Clamp(day, 1, GameConstants.TOTAL_DAYS);
+            Debug.Log($"[GameManager] Current day set to: {currentDay}");
         }
     }
 }

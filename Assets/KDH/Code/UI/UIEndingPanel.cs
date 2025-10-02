@@ -76,7 +76,10 @@ namespace KDH.Code.UI
         /// </summary>
         private void OnGameStateChanged(GameState newState)
         {
-            gameObject.SetActive(newState == GameState.Ending);
+            bool shouldBeActive = newState == GameState.Ending;
+            gameObject.SetActive(shouldBeActive);
+    
+            Debug.Log($"[UIEndingPanel] Active: {shouldBeActive}");
         }
         
         /// <summary>

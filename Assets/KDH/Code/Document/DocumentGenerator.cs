@@ -255,7 +255,7 @@ namespace KDH.Code.Document
             applicant.hasCertification = random.Next(100) < 40;
             if (applicant.hasCertification)
             {
-                applicant.certificationName = "정보처리기사";
+                applicant.certificationName = "자격증";
             }
         }
         

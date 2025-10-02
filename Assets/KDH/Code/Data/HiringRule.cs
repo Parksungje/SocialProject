@@ -112,14 +112,24 @@ namespace KDH.Code.Data
                     return EvaluateInt(applicant.age, int.Parse(value));
                     
                 case ConditionField.HasCriminalRecord:
-                    return EvaluateBool(applicant.hasCriminalRecord, bool.Parse(value));
-                    
+                    return EvaluateBool(applicant.hasCriminalRecord, value);
+
                 case ConditionField.HasRecommendation:
-                    return EvaluateBool(applicant.hasRecommendationLetter, bool.Parse(value));
+                    return EvaluateBool(applicant.hasRecommendationLetter, value);
                     
                 default:
                     return false;
             }
+        }
+        
+        private bool EvaluateBool(bool actual, string expectedStr)
+        {
+            if (!bool.TryParse(expectedStr, out bool expected))
+            {
+                Debug.LogWarning($"[RuleCondition] '{expectedStr}' 는 bool 로 변환할 수 없습니다. false 로 처리합니다.");
+                return false;
+            }
+            return actual == expected;
         }
         
         private bool EvaluateEnum(string actual, string expected)

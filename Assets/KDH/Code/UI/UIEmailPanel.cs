@@ -47,6 +47,7 @@ namespace KDH.Code.UI
         private void InitializeUI()
         {
             startWorkButton.onClick.AddListener(OnStartWorkClicked);
+            startWorkButton.interactable = false;
             emailContentPanel.SetActive(false);
         }
         
@@ -98,18 +99,23 @@ namespace KDH.Code.UI
         private void OnEmailsReceived(List<EmailInstance> emails)
         {
             ClearEmailList();
-            
+    
             foreach (var email in emails)
             {
                 CreateEmailItem(email);
             }
-            
+    
             // 필수 이메일 자동 열기
             var mandatoryEmail = EmailManager.Instance.MandatoryEmail;
             if (mandatoryEmail != null)
             {
                 DisplayEmail(mandatoryEmail);
                 EmailManager.Instance.ReadEmail(mandatoryEmail);
+            }
+            else
+            {
+                // ✅ 필수 이메일이 없으면 바로 활성화
+                startWorkButton.interactable = true;
             }
         }
         
@@ -177,6 +183,23 @@ namespace KDH.Code.UI
         /// </summary>
         private void OnStartWorkClicked()
         {
+            startWorkButton.interactable = false;
+            
+            StartCoroutine(TransitionToDocumentReview());
+        }
+
+        /// <summary>
+        /// 서류 심사로 전환 (코루틴)
+        /// </summary>
+        private System.Collections.IEnumerator TransitionToDocumentReview()
+        {
+            // 짧은 대기
+            yield return new WaitForSeconds(0.3f);
+    
+            // 패널 비활성화
+            gameObject.SetActive(false);
+    
+            // 상태 전환
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.ChangeState(GameState.DocumentReview);

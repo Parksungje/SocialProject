@@ -180,17 +180,12 @@ namespace KDH.Code.Managers
             documentsProcessedToday = 0;
             correctDecisionsToday = 0;
             totalDecisionsToday = 0;
-            
+    
             OnDayChanged?.Invoke(currentDay);
-            
+    
             Debug.Log($"Day {currentDay} started. Target: {GetTodayTarget()} documents");
-            
-            // 잠시 후 이메일 브리핑으로 전환
-            Invoke(nameof(MoveToEmailBriefing), 1f);
-        }
-        
-        private void MoveToEmailBriefing()
-        {
+    
+            // ✅ 즉시 전환
             ChangeState(GameState.EmailBriefing);
         }
         

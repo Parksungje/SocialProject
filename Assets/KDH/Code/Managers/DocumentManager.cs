@@ -62,23 +62,25 @@ namespace KDH.Code.Managers
         {
             if (newState == GameState.DocumentReview)
             {
-                StartDocumentReview();
+                Invoke(nameof(StartDocumentReview), 0.5f);
             }
         }
-        
+
         /// <summary>
         /// 서류 심사 시작
         /// </summary>
         private void StartDocumentReview()
         {
+            Debug.Log("[DocumentManager] Starting document review");
+    
             processedCount = 0;
             correctCount = 0;
             documentQueue.Clear();
-            
+    
             // 오늘의 목표량만큼 서류 생성
             int targetCount = GameManager.Instance.GetTodayTarget();
             GenerateDocuments(targetCount);
-            
+    
             // 첫 서류 제시
             PresentNextDocument();
         }

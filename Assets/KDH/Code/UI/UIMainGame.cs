@@ -106,14 +106,19 @@ namespace KDH.Code.UI
         {
             switch (newState)
             {
+                case GameState.EmailBriefing:
+                    documentPanel.SetActive(false);
+                    break;
+            
                 case GameState.DocumentReview:
                     documentPanel.SetActive(true);
                     EnableDecisionButtons(false); // 서류가 제시될 때까지 비활성화
                     break;
-                    
+                
                 case GameState.DailyReport:
                 case GameState.InnerThoughts:
                 case GameState.FamilyTalk:
+                case GameState.DayEnd:
                     documentPanel.SetActive(false);
                     break;
             }

@@ -19,7 +19,7 @@ MonoBehaviour:
   senderTitle: "\uAE30\uD0C0"
   subject: "\uBE44\uD2F1\u314B\u314B\u314B\u314B"
   body: "\uC5B4 \uD615\uC740 \uB108\uB791 \uB2EC\uB9AC \uC6B4\uC774 \uC88B\uC544
-    \u314B\u314B\u314B\u314B\u314B\u314B/n\n/n\n(\uB9DD\uD55C \uBF51\uAE30\uB2E4...)"
+    \u314B\u314B\u314B\u314B\u314B\u314B\\n\n\\n\n(\uB9DD\uD55C \uBF51\uAE30\uB2E4...)"
   hasAttachment: 1
   attachmentName: "\uAC00\uCC60_\uCC9C\uC7A5_\uD5C8\uC811"
   isMandatory: 0

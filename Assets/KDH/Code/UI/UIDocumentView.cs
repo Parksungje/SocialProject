@@ -61,7 +61,7 @@ namespace KDH.Code.UI
             // 경력 정보 표시
             DisplayCareerInfo(applicant);
             
-            // 추가 서류 표시
+            // 추가 서류 표시 (조건부)
             DisplayAdditionalDocuments(applicant);
         }
         
@@ -70,13 +70,22 @@ namespace KDH.Code.UI
         /// </summary>
         private void DisplayBasicInfo(ApplicantData applicant)
         {
-            nameText.text = applicant.fullName;
-            ageText.text = $"{applicant.age}세";
-            genderText.text = applicant.gender;
-            addressText.text = applicant.GetFullAddress();
-            phoneText.text = applicant.phoneNumber;
+            if (nameText != null)
+                nameText.text = applicant.fullName;
             
-            if (applicant.photoSprite != null)
+            if (ageText != null)
+                ageText.text = $"{applicant.age}세";
+            
+            if (genderText != null)
+                genderText.text = applicant.gender;
+            
+            if (addressText != null)
+                addressText.text = applicant.GetFullAddress();
+            
+            if (phoneText != null)
+                phoneText.text = applicant.phoneNumber;
+            
+            if (photoImage != null && applicant.photoSprite != null)
             {
                 photoImage.sprite = applicant.photoSprite;
             }
@@ -87,10 +96,17 @@ namespace KDH.Code.UI
         /// </summary>
         private void DisplayEducationInfo(ApplicantData applicant)
         {
-            universityText.text = applicant.universityName;
-            majorText.text = applicant.major;
-            graduationYearText.text = $"{applicant.graduationYear}년 졸업";
-            gpaText.text = $"{applicant.gpa:F2} / 4.5";
+            if (universityText != null)
+                universityText.text = applicant.universityName;
+            
+            if (majorText != null)
+                majorText.text = applicant.major;
+            
+            if (graduationYearText != null)
+                graduationYearText.text = $"{applicant.graduationYear}년 졸업";
+            
+            if (gpaText != null)
+                gpaText.text = $"{applicant.gpa:F2} / 4.5";
         }
         
         /// <summary>
@@ -100,61 +116,107 @@ namespace KDH.Code.UI
         {
             if (applicant.experienceMonths > 0)
             {
-                companyText.text = applicant.previousCompany;
-                positionText.text = applicant.position;
-                experienceText.text = applicant.GetExperienceDuration();
-                employmentPeriodText.text = $"{applicant.employmentStartDate:yyyy.MM} ~ {applicant.employmentEndDate:yyyy.MM}";
+                if (companyText != null)
+                    companyText.text = applicant.previousCompany;
+                
+                if (positionText != null)
+                    positionText.text = applicant.position;
+                
+                if (experienceText != null)
+                    experienceText.text = applicant.GetExperienceDuration();
+                
+                if (employmentPeriodText != null)
+                    employmentPeriodText.text = $"{applicant.employmentStartDate:yyyy.MM} ~ {applicant.employmentEndDate:yyyy.MM}";
             }
             else
             {
-                companyText.text = "없음";
-                positionText.text = "신입";
-                experienceText.text = "경력 없음";
-                employmentPeriodText.text = "-";
+                // 신입인 경우
+                if (companyText != null)
+                    companyText.text = "없음";
+                
+                if (positionText != null)
+                    positionText.text = "신입";
+                
+                if (experienceText != null)
+                    experienceText.text = "경력 없음";
+                
+                if (employmentPeriodText != null)
+                    employmentPeriodText.text = "-";
             }
         }
         
         /// <summary>
-        /// 추가 서류 표시
+        /// 추가 서류 표시 (조건부)
         /// </summary>
         private void DisplayAdditionalDocuments(ApplicantData applicant)
         {
-            // 신원조회서
-            if (applicant.hasBackgroundCheck)
+            // 1. 신원조회서 (Background Check)
+            if (backgroundCheckPanel != null)
             {
-                backgroundCheckPanel.SetActive(true);
-                criminalRecordText.text = applicant.hasCriminalRecord 
-                    ? "범죄 기록 있음" 
-                    : "범죄 기록 없음";
-                criminalRecordText.color = applicant.hasCriminalRecord 
-                    ? Color.red 
-                    : Color.green;
-            }
-            else
-            {
-                backgroundCheckPanel.SetActive(false);
+                if (applicant.hasBackgroundCheck)
+                {
+                    // 신원조회서가 있으면 표시
+                    backgroundCheckPanel.SetActive(true);
+                    
+                    if (criminalRecordText != null)
+                    {
+                        if (applicant.hasCriminalRecord)
+                        {
+                            criminalRecordText.text = "범죄 기록 있음";
+                            criminalRecordText.color = Color.red;
+                        }
+                        else
+                        {
+                            criminalRecordText.text = "범죄 기록 없음";
+                            criminalRecordText.color = Color.green;
+                        }
+                    }
+                }
+                else
+                {
+                    // 신원조회서가 없으면 숨김
+                    backgroundCheckPanel.SetActive(false);
+                }
             }
             
-            // 추천서
-            if (applicant.hasRecommendationLetter)
+            // 2. 추천서 (Recommendation Letter)
+            if (recommendationPanel != null)
             {
-                recommendationPanel.SetActive(true);
-                recommendationText.text = applicant.recommendationText;
-            }
-            else
-            {
-                recommendationPanel.SetActive(false);
+                if (applicant.hasRecommendationLetter)
+                {
+                    // 추천서가 있으면 표시
+                    recommendationPanel.SetActive(true);
+                    
+                    if (recommendationText != null)
+                    {
+                        recommendationText.text = applicant.recommendationText;
+                    }
+                }
+                else
+                {
+                    // 추천서가 없으면 숨김
+                    recommendationPanel.SetActive(false);
+                }
             }
             
-            // 자격증
-            if (applicant.hasCertification)
+            // 3. 자격증 (Certification)
+            if (certificationPanel != null)
             {
-                certificationPanel.SetActive(true);
-                certificationText.text = applicant.certificationName;
-            }
-            else
-            {
-                certificationPanel.SetActive(false);
+                if (applicant.hasCertification)
+                {
+                    // 자격증이 있으면 표시
+                    certificationPanel.SetActive(true);
+                    
+                    if (certificationText != null)
+                    {
+                        certificationText.text = applicant.certificationName;
+                    }
+                }
+                else
+                {
+                    // 자격증이 없으면 숨김
+                    certificationPanel.SetActive(false);
+                }
             }
         }
         
@@ -163,8 +225,11 @@ namespace KDH.Code.UI
         /// </summary>
         public void ToggleHighlightMode()
         {
-            isHighlightMode = highlightToggle.isOn;
-            Debug.Log($"Highlight mode: {isHighlightMode}");
+            if (highlightToggle != null)
+            {
+                isHighlightMode = highlightToggle.isOn;
+                Debug.Log($"Highlight mode: {isHighlightMode}");
+            }
         }
         
         /// <summary>
@@ -173,6 +238,9 @@ namespace KDH.Code.UI
         public void OnTextClicked(TextMeshProUGUI textElement)
         {
             if (!isHighlightMode)
+                return;
+            
+            if (textElement == null)
                 return;
             
             // 하이라이트 토글
